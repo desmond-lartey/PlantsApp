@@ -29,7 +29,8 @@ html_code = """
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.0/xlsx.core.min.js"></script>
 </head>
 <body class="bg-light">
-<!<div class="container mt-5">
+
+<div class="container mt-5">
     <h2 class="text-center">Data Viewer</h2>
     <div class="row mt-4">
         <div class="col-md-4">
@@ -165,9 +166,6 @@ populateAttributes();
         // Initial population
         populateValues();
     </script>
-</body>
-</html>
->
 </body>
 </html>
 """
