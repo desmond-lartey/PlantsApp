@@ -19,13 +19,13 @@ import pandas as pd
 
 # Dictionary to map file selection to its path
 file_paths = {
-    "Biodiversity": "https://github.com/desmond-lartey/PlantsApp/blob/Fires/data/biodiversity_corrected.xlsx",
-    "Climate": "https://github.com/desmond-lartey/PlantsApp/blob/Fires/data/climate_corrected.xlsx",
-    "Functional": "https://github.com/desmond-lartey/PlantsApp/blob/Fires/data/functional_corrected.xlsx",
-    "Hazard": "https://github.com/desmond-lartey/PlantsApp/blob/Fires/data/hazards_corrected.xlsx",
-    "Maintenance": "https://github.com/desmond-lartey/PlantsApp/blob/Fires/data/maintenance_corrected.xlsx",
-    "Ornamental": "https://github.com/desmond-lartey/PlantsApp/blob/Fires/data/ornamental_corrected.xlsx",
-    "Plants": "https://github.com/desmond-lartey/PlantsApp/blob/Fires/data/plants_corrected.xlsx"
+    "Biodiversity": "data/biodiversity_corrected.xlsx",
+    "Climate": "data/climate_corrected.xlsx",
+    "Functional": "data/functional_corrected.xlsx",
+    "Hazard": "data/hazards_corrected.xlsx",
+    "Maintenance": "data/maintenance_corrected.xlsx",
+    "Ornamental": "data/ornamental_corrected.xlsx",
+    "Plants": "data/plants_corrected.xlsx"
 }
 
 def app():
