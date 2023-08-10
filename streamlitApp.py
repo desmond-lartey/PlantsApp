@@ -57,7 +57,6 @@ def app():
 # Run the app
 app()
 
-streamlit run streamlitApp.py.
 
 # In[ ]:
 
