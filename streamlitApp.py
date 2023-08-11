@@ -19,35 +19,43 @@ def app():
     selected_values_dict = {}
     for selected_file in selected_files:
         df = pd.read_excel(file_paths[selected_file])
+
+        # Dropdown to select an attribute (column name)
         selected_attributes = st.multiselect(f"Select Attributes for {selected_file}:", df.columns.tolist(), key=selected_file)
+
         for attribute in selected_attributes:
             if attribute in ["climate zone from", "climate zone till"]:
+                # Force the options to be a predefined set of climate zones
                 climate_zones = ["1a", "1b", "2a", "2b", "3a", "3b", "4a", "4b", "5a", "5b", "6a", "6b", "7a", "7b", "8a", "8b", "9a", "9b", "10a", "10b", "11a", "11b", "12a", "12b", "13a", "13b", "14a", "14b"]
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", climate_zones, key=f"{selected_file}_{attribute}")
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
-            selected_values_dict[f"{selected_file}_{attribute}"] = selected_values
+            selected_values_dict[(selected_file, attribute)] = selected_values
 
-    results = []
-    for selected_file in selected_files:
-        df = pd.read_excel(file_paths[selected_file])
-        mask = True
-        for attribute in selected_values_dict.keys():
-            if selected_file in attribute:
-                mask &= df[attribute.split('_')[1]].isin(selected_values_dict[attribute])
-        matching_data = df[mask]
-        results.extend(matching_data["PlantID"].tolist())
-
-    if st.button("Fetch Matching Plant IDs"):
-        st.write("Matching Plant IDs:", list(set(results)))
-
+    # Fetch matching plant names
     if st.button("Fetch Matching Plant Names"):
+        if not selected_values_dict:
+            st.warning("Please select attributes and values first.")
+            return
+
+        results = []
+        for file, attr in selected_values_dict:
+            if file not in file_paths:
+                continue
+            df = pd.read_excel(file_paths[file])
+            mask = df[attr].isin(selected_values_dict[(file, attr)])
+            results.extend(df[mask]["PlantID"].tolist())
+        
         plants_df = pd.read_excel(file_paths["Plants"])
-        matching_plant_ids = [int(id) for id in list(set(results))]  # Ensure IDs are integers
-        matching_plants = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]
-        for _, row in matching_plants.iterrows():
-            st.write(f"{row['PlantID']} - {row['Plant name']}")
+        matching_plant_ids = list(set(results))
+        matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
+
+        st.write("Matching Plant Names:")
+        st.write(matching_plant_names)
+
+        st.write("Matching Plant IDs:")
+        st.write(matching_plant_ids)
 
 # Run the app
 app()
