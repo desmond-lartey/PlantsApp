@@ -13,46 +13,45 @@ file_paths = {
 }
 
 def app():
-    # Dropdown to select a file
-    selected_file = st.selectbox("Select a File:", list(file_paths.keys()))
+    # Multiselect to select files
+    selected_files = st.multiselect("Select Files:", list(file_paths.keys()))
 
-    # Load the selected file
-    df = pd.read_excel(file_paths[selected_file])
+    # Consolidate results from all selected files
+    all_matching_data = []
+    all_matching_plant_names = []
 
-    # Multiselect to select multiple attributes
-    selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist())
+    for selected_file in selected_files:
+        # Load the selected file
+        df = pd.read_excel(file_paths[selected_file])
 
-    attribute_value_dict = {}
-    mask = True
-    for attribute in selected_attributes:
-        if attribute == "ph":
-            range_input = st.text_input(f"Enter {attribute} range (e.g., 5-8 or 5-8,5):")
-            try:
-                parts = range_input.split('-')
-                # Replace comma with dot and convert to float
-                lower_bound = float(parts[0].replace(',', '.'))
-                upper_bound = float(parts[1].replace(',', '.'))
-                mask &= (df[attribute] >= lower_bound) & (df[attribute] <= upper_bound)
-            except ValueError:
-                st.write("Please enter a valid range.")
-                return  # Exit the current execution cycle of the app
-        else:
-            unique_values = df[attribute].dropna().unique().tolist()
-            selected_value = st.selectbox(f"Select a Value for {attribute}:", unique_values)
-            attribute_value_dict[attribute] = selected_value
-            mask &= (df[attribute] == selected_value)
+        # Multiselect to select multiple attributes
+        selected_attributes = st.multiselect(f"Select Attributes for {selected_file}:", df.columns.tolist())
 
-    # Button to fetch matching data
-    if selected_attributes and st.button("Fetch Matching Data"):
+        mask = True
+        for attribute in selected_attributes:
+            if attribute == "ph":
+                ph_values = [str(i) for i in range(15)]
+                selected_ph_values = st.multiselect(f"Select pH values for {selected_file}:", ph_values)
+                selected_ph_values = [float(i) for i in selected_ph_values]
+                mask &= df[attribute].isin(selected_ph_values)
+            # Add logic for "Climate Zone From" and "Climate Zone Till" if necessary
+            else:
+                unique_values = df[attribute].dropna().unique().tolist()
+                selected_value = st.selectbox(f"Select a Value for {attribute} in {selected_file}:", unique_values)
+                mask &= (df[attribute] == selected_value)
+
         matching_data = df[mask]
-        st.write(matching_data["PlantID"].tolist())
+        all_matching_data.extend(matching_data["PlantID"].tolist())
 
-    # Button to fetch matching plant names
-    if selected_attributes and st.button("Fetch Matching Plant Names"):
+        # Matching plant names logic
         plants_df = pd.read_excel(file_paths["Plants"])
-        matching_plant_ids = df[mask]["PlantID"].tolist()
+        matching_plant_ids = matching_data["PlantID"].tolist()
         matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
-        st.write(matching_plant_names)
+        all_matching_plant_names.extend(matching_plant_names)
+
+    # Display results
+    st.write("Matching Plant IDs:", list(set(all_matching_data)))
+    st.write("Matching Plant Names:", list(set(all_matching_plant_names)))
 
 # Run the app
 app()
