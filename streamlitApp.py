@@ -20,16 +20,19 @@ def app():
     df = pd.read_excel(file_paths[selected_file])
 
     # Dropdown to select an attribute (column name)
-    selected_attribute = st.selectbox("Select an Attribute:", df.columns.tolist())
+    selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist())
 
-    # Depending on the attribute, provide a dropdown or multiselect for values
-    if selected_attribute in ["Climate Zone From", "Climate Zone Till"]:
-        # Assuming 10 climate zones as an example
-        climate_zones = list(range(1, 11))  
-        selected_values = st.multiselect(f"Select Values for {selected_attribute}:", climate_zones)
-    else:
-        unique_values = df[selected_attribute].dropna().unique().tolist()
-        selected_value = st.selectbox(f"Select a Value for {selected_attribute}:", unique_values)
+    selected_values_dict = {}
+
+    for attribute in selected_attributes:
+        unique_values = df[attribute].dropna().unique().tolist()
+        if attribute in ["Climate Zone From", "Climate Zone Till"]:
+            # Assuming 10 climate zones as an example
+            selected_values = st.multiselect(f"Select Values for {attribute}:", unique_values)
+            selected_values_dict[attribute] = selected_values
+        else:
+            selected_value = st.multiselect(f"Select a Value for {attribute}:", unique_values)
+            selected_values_dict[attribute] = selected_value
 
     # Further filtering and logic can be added later
 
