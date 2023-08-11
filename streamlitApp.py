@@ -29,7 +29,7 @@ def app():
         selected_values = st.multiselect(f"Select Values for {attribute}:", unique_values)
         selected_values_dict[attribute] = selected_values
 
-    # Further filtering and logic can be added later
+    # This is where you can add further logic and filtering based on the selected values
 
 # Run the app
 app()
