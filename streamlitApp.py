@@ -13,43 +13,25 @@ file_paths = {
 }
 
 def app():
-    # Multiselect to select files
-    selected_files = st.multiselect("Select Files:", list(file_paths.keys()))
-
-    combined_df = pd.DataFrame()
-
-    for selected_file in selected_files:
-        # Load the selected file
-        df = pd.read_excel(file_paths[selected_file])
-        combined_df = pd.concat([combined_df, df])
-
-    # Multiselect for pH values
-    ph_values = list(range(15))
-    selected_ph_values = st.multiselect("Select pH Values:", ph_values)
+    # Dropdown to select a file
+    selected_file = st.selectbox("Select a File:", list(file_paths.keys()))
     
-    # Filtering logic for pH
-    if selected_ph_values:
-        combined_df = combined_df[combined_df['ph'].isin(selected_ph_values)]
+    # Load the selected file
+    df = pd.read_excel(file_paths[selected_file])
 
-    # Multiselect for Climate Zone From and Till
-    climate_zones = list(range(1, 11))  # Assuming 10 climate zones as an example
-    selected_zones_from = st.multiselect("Select Climate Zone From:", climate_zones)
-    selected_zones_till = st.multiselect("Select Climate Zone Till:", climate_zones)
+    # Dropdown to select an attribute (column name)
+    selected_attribute = st.selectbox("Select an Attribute:", df.columns.tolist())
 
-    # Filtering logic for Climate Zones
-    if selected_zones_from:
-        combined_df = combined_df[combined_df['Climate Zone From'].isin(selected_zones_from)]
-    if selected_zones_till:
-        combined_df = combined_df[combined_df['Climate Zone Till'].isin(selected_zones_till)]
+    # Depending on the attribute, provide a dropdown or multiselect for values
+    if selected_attribute in ["Climate Zone From", "Climate Zone Till"]:
+        # Assuming 10 climate zones as an example
+        climate_zones = list(range(1, 11))  
+        selected_values = st.multiselect(f"Select Values for {selected_attribute}:", climate_zones)
+    else:
+        unique_values = df[selected_attribute].dropna().unique().tolist()
+        selected_value = st.selectbox(f"Select a Value for {selected_attribute}:", unique_values)
 
-    # Display results
-    st.write("Matching Plant IDs:", combined_df["PlantID"].tolist())
-
-    # Matching plant names logic
-    plants_df = pd.read_excel(file_paths["Plants"])
-    matching_plant_ids = combined_df["PlantID"].tolist()
-    matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
-    st.write("Matching Plant Names:", matching_plant_names)
+    # Further filtering and logic can be added later
 
 # Run the app
 app()
