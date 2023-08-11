@@ -36,11 +36,11 @@ def app():
     df = pd.read_excel(file_paths[selected_file])
 
     # Dropdown to select an attribute (column name)
-    selected_attribute = st.selectbox("Select an Attribute:", df.columns.tolist())
+    selected_attribute = st.multiselect("Select an Attribute:", df.columns.tolist())
 
     # Dropdown to select a value from the chosen attribute's unique values
     unique_values = df[selected_attribute].dropna().unique().tolist()
-    selected_value = st.selectbox("Select a Value:", unique_values)
+    selected_value = st.multiselect("Select a Value:", unique_values)
 
     # Button to fetch matching data
     if st.button("Fetch Matching Data"):
