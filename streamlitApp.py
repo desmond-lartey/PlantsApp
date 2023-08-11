@@ -34,7 +34,7 @@ def app():
             
             selected_values_dict[f"{selected_file}_{attribute}"] = selected_values
 
-    if st.button("Fetch Matching Data"):
+    if st.button("Fetch Matching Plant IDs"):
         results = []
         for selected_file in selected_files:
             df = pd.read_excel(file_paths[selected_file])
@@ -45,6 +45,12 @@ def app():
             results.extend(df["PlantID"].tolist())
         
         st.write("Matching Plant IDs:", list(set(results)))
+
+    if st.button("Fetch Matching Plant Names"):
+        plants_df = pd.read_excel(file_paths["Plants"])
+        matching_plant_ids = list(set(results))
+        matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
+        st.write("Matching Plant Names:", matching_plant_names)
 
 # Run the app
 app()
