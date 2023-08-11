@@ -25,13 +25,9 @@ def app():
     selected_values_dict = {}
 
     for attribute in selected_attributes:
-        unique_values = df[attribute].dropna().unique().tolist()
-        if attribute in ["Climate Zone From", "Climate Zone Till"]:
-            selected_values = st.multiselect(f"Select Values for {attribute}:", unique_values)
-            selected_values_dict[attribute] = selected_values
-        else:
-            selected_value = st.selectbox(f"Select a Value for {attribute}:", unique_values)
-            selected_values_dict[attribute] = [selected_value]  # Placing it in a list to keep consistent with multiselect
+        unique_values = sorted(df[attribute].dropna().unique().tolist())
+        selected_values = st.multiselect(f"Select Values for {attribute}:", unique_values)
+        selected_values_dict[attribute] = selected_values
 
     # Further filtering and logic can be added later
 
