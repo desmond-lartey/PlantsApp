@@ -47,6 +47,13 @@ def app():
     if selected_attributes and st.button("Fetch Matching Data"):
         
 # Button to fetch matching plant names (assuming "Plant name" column exists in "plants_corrected.xlsx")
+if selected_attributes and st.button("Fetch Matching Data"):
+    mask = True
+    for attr, value in attribute_value_dict.items():
+        mask &= (df[attr] == value)
+    matching_data = df[mask]
+    st.write(matching_data["PlantID"].tolist())
+
 if selected_attributes and st.button("Fetch Matching Plant Names"):
     mask = True
     for attr, value in attribute_value_dict.items():
