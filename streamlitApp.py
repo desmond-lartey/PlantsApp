@@ -45,20 +45,22 @@ def app():
     if st.button("Fetch Matching Plant IDs"):
         results = []
         plants_df = pd.read_excel(file_paths["Plants"])
+        df_climate = pd.read_excel(file_paths["Climate"])
+
         for key, selected_values in selected_values_dict.items():
             selected_file, attr = key.split("_")
-            df = pd.read_excel(file_paths[selected_file])
 
             if "climate zone from" in key:
                 zones_as_numbers = [climate_zone_to_number(zone) for zone in selected_values]
-                mask = df["climate zone from"].apply(climate_zone_to_number) <= max(zones_as_numbers)
+                mask = df_climate["climate zone from"].apply(climate_zone_to_number) >= min(zones_as_numbers)
             elif "climate zone till" in key:
                 zones_as_numbers = [climate_zone_to_number(zone) for zone in selected_values]
-                mask = df["climate zone till"].apply(climate_zone_to_number) >= min(zones_as_numbers)
+                mask = df_climate["climate zone till"].apply(climate_zone_to_number) <= max(zones_as_numbers)
             else:
+                df = pd.read_excel(file_paths[selected_file])
                 mask = df[attr].isin(selected_values)
 
-            results.extend(df[mask]["PlantID"].tolist())
+            results.extend(df_climate[mask]["PlantID"].tolist())
 
         st.write("Matching Plant IDs:", list(set(results)))
 
