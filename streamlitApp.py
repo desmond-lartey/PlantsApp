@@ -16,42 +16,40 @@ def app():
     # Multiselect to select files
     selected_files = st.multiselect("Select Files:", list(file_paths.keys()))
 
-    # Consolidate results from all selected files
-    all_matching_data = []
-    all_matching_plant_names = []
+    combined_df = pd.DataFrame()
 
     for selected_file in selected_files:
         # Load the selected file
         df = pd.read_excel(file_paths[selected_file])
+        combined_df = pd.concat([combined_df, df])
 
-        # Multiselect to select multiple attributes
-        selected_attributes = st.multiselect(f"Select Attributes for {selected_file}:", df.columns.tolist())
+    # Multiselect for pH values
+    ph_values = list(range(15))
+    selected_ph_values = st.multiselect("Select pH Values:", ph_values)
+    
+    # Filtering logic for pH
+    if selected_ph_values:
+        combined_df = combined_df[combined_df['ph'].isin(selected_ph_values)]
 
-        mask = True
-        for attribute in selected_attributes:
-            if attribute == "ph":
-                ph_values = [str(i) for i in range(15)]
-                selected_ph_values = st.multiselect(f"Select pH values for {selected_file}:", ph_values)
-                selected_ph_values = [float(i) for i in selected_ph_values]
-                mask &= df[attribute].isin(selected_ph_values)
-            # Add logic for "Climate Zone From" and "Climate Zone Till" if necessary
-            else:
-                unique_values = df[attribute].dropna().unique().tolist()
-                selected_value = st.selectbox(f"Select a Value for {attribute} in {selected_file}:", unique_values)
-                mask &= (df[attribute] == selected_value)
+    # Multiselect for Climate Zone From and Till
+    climate_zones = list(range(1, 11))  # Assuming 10 climate zones as an example
+    selected_zones_from = st.multiselect("Select Climate Zone From:", climate_zones)
+    selected_zones_till = st.multiselect("Select Climate Zone Till:", climate_zones)
 
-        matching_data = df[mask]
-        all_matching_data.extend(matching_data["PlantID"].tolist())
-
-        # Matching plant names logic
-        plants_df = pd.read_excel(file_paths["Plants"])
-        matching_plant_ids = matching_data["PlantID"].tolist()
-        matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
-        all_matching_plant_names.extend(matching_plant_names)
+    # Filtering logic for Climate Zones
+    if selected_zones_from:
+        combined_df = combined_df[combined_df['Climate Zone From'].isin(selected_zones_from)]
+    if selected_zones_till:
+        combined_df = combined_df[combined_df['Climate Zone Till'].isin(selected_zones_till)]
 
     # Display results
-    st.write("Matching Plant IDs:", list(set(all_matching_data)))
-    st.write("Matching Plant Names:", list(set(all_matching_plant_names)))
+    st.write("Matching Plant IDs:", combined_df["PlantID"].tolist())
+
+    # Matching plant names logic
+    plants_df = pd.read_excel(file_paths["Plants"])
+    matching_plant_ids = combined_df["PlantID"].tolist()
+    matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
+    st.write("Matching Plant Names:", matching_plant_names)
 
 # Run the app
 app()
