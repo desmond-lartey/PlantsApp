@@ -42,9 +42,10 @@ def app():
 
     if st.button("Fetch Matching Plant Names"):
         plants_df = pd.read_excel(file_paths["Plants"])
-        matching_plant_ids = list(set(results))
-        matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
-        st.write("Matching Plant Names:", matching_plant_names)
+        matching_plant_ids = [int(id) for id in list(set(results))] # Ensure IDs are integers
+        matching_plants = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]
+        for _, row in matching_plants.iterrows():
+            st.write(f"{row['PlantID']} - {row['Plant name']}")
 
 # Run the app
 app()
