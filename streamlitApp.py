@@ -34,8 +34,8 @@ def app():
             
             selected_values_dict[f"{selected_file}_{attribute}"] = selected_values
 
+ results = []
     if st.button("Fetch Matching Plant IDs"):
-        results = []
         for selected_file in selected_files:
             df = pd.read_excel(file_paths[selected_file])
             for attribute in selected_values_dict.keys():
