@@ -44,16 +44,7 @@ def app():
             if file not in file_paths:
                 continue
             df = pd.read_excel(file_paths[file])
-            
-            if attr == "climate zone from":
-                max_zone = max(selected_values_dict[(file, attr)])
-                mask = df[attr] <= max_zone
-            elif attr == "climate zone till":
-                min_zone = min(selected_values_dict[(file, attr)])
-                mask = df[attr] >= min_zone
-            else:
-                mask = df[attr].isin(selected_values_dict[(file, attr)])
-            
+            mask = df[attr].isin(selected_values_dict[(file, attr)])
             results.extend(df[mask]["PlantID"].tolist())
         
         plants_df = pd.read_excel(file_paths["Plants"])
