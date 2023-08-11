@@ -12,14 +12,22 @@ file_paths = {
     "Plants": "data/plants_corrected.xlsx"
 }
 
+def climate_zone_to_number(zone):
+    try:
+        num, letter = int(zone[:-1]), zone[-1]
+        letter_value = ord(letter) - ord('a')
+        return num + 0.1 * letter_value
+    except:
+        return 0
+
 def app():
-    # Dropdown to select a file
+    # Multiselect to select files
     selected_files = st.multiselect("Select Files:", list(file_paths.keys()))
-    
+
     selected_values_dict = {}
+
     for selected_file in selected_files:
         df = pd.read_excel(file_paths[selected_file])
-
         # Dropdown to select an attribute (column name)
         selected_attributes = st.multiselect(f"Select Attributes for {selected_file}:", df.columns.tolist(), key=selected_file)
 
@@ -31,40 +39,31 @@ def app():
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
-            selected_values_dict[(selected_file, attribute)] = selected_values
+            selected_values_dict[f"{selected_file}_{attribute}"] = selected_values
 
-    # Fetch matching plant names
-    if st.button("Fetch Matching Plant Names"):
-        if not selected_values_dict:
-            st.warning("Please select attributes and values first.")
-            return
-
+    # Filtering logic based on the selected values
+    if st.button("Fetch Matching Plant IDs"):
         results = []
-        for file, attr in selected_values_dict:
-            if file not in file_paths:
-                continue
-            df = pd.read_excel(file_paths[file])
-            
-            if attr == "climate zone from":
-                max_zone = max(selected_values_dict[(file, attr)])
-                mask = df[attr] <= max_zone
-            elif attr == "climate zone till":
-                min_zone = min(selected_values_dict[(file, attr)])
-                mask = df[attr] >= min_zone
-            else:
-                mask = df[attr].isin(selected_values_dict[(file, attr)])
-            
-            results.extend(df[mask]["PlantID"].tolist())
-        
         plants_df = pd.read_excel(file_paths["Plants"])
-        matching_plant_ids = list(set(results))
-        matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
+        for key, selected_values in selected_values_dict.items():
+            selected_file, attr = key.split("_")
+            df = pd.read_excel(file_paths[selected_file])
 
-        st.write("Matching Plant Names:")
-        st.write(matching_plant_names)
+            if "climate zone from" in key:
+                zones_as_numbers = [climate_zone_to_number(zone) for zone in selected_values]
+                mask = df["climate zone from"].apply(climate_zone_to_number) <= max(zones_as_numbers)
+            elif "climate zone till" in key:
+                zones_as_numbers = [climate_zone_to_number(zone) for zone in selected_values]
+                mask = df["climate zone till"].apply(climate_zone_to_number) >= min(zones_as_numbers)
+            else:
+                mask = df[attr].isin(selected_values)
 
-        st.write("Matching Plant IDs:")
-        st.write(matching_plant_ids)
+            results.extend(df[mask]["PlantID"].tolist())
+
+        st.write("Matching Plant IDs:", list(set(results)))
+
+        matching_plant_names = plants_df[plants_df["PlantID"].isin(results)]["Plant name"].tolist()
+        st.write("Matching Plant Names:", matching_plant_names)
 
 # Run the app
 app()
