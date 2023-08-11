@@ -20,7 +20,6 @@ def app():
     df = pd.read_excel(file_paths[selected_file])
 
     # Multiselect to select multiple attributes
-    selected_attributes = []
     selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist())
 
     attribute_value_dict = {}
@@ -29,40 +28,23 @@ def app():
         selected_value = st.selectbox(f"Select a Value for {attribute}:", unique_values)
         attribute_value_dict[attribute] = selected_value
 
-def app():
-    selected_attributes = []  # Explicit initialization at the start of the function
-
-    # Dropdown to select a file
-    selected_file = st.selectbox("Select a File:", list(file_paths.keys()))
-
-    # Load the selected file
-    df = pd.read_excel(file_paths[selected_file])
-
-    # Multiselect to select multiple attributes
-    selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist())
-
-    # Debugging line
-    st.write(f"Debug: Selected Attributes = {selected_attributes}")
-
+    # Button to fetch matching data
     if selected_attributes and st.button("Fetch Matching Data"):
-        
-# Button to fetch matching plant names (assuming "Plant name" column exists in "plants_corrected.xlsx")
-if selected_attributes and st.button("Fetch Matching Data"):
-    mask = True
-    for attr, value in attribute_value_dict.items():
-        mask &= (df[attr] == value)
-    matching_data = df[mask]
-    st.write(matching_data["PlantID"].tolist())
+        mask = True
+        for attr, value in attribute_value_dict.items():
+            mask &= (df[attr] == value)
+        matching_data = df[mask]
+        st.write(matching_data["PlantID"].tolist())
 
-if selected_attributes and st.button("Fetch Matching Plant Names"):
-    mask = True
-    for attr, value in attribute_value_dict.items():
-        mask &= (df[attr] == value)
-    plants_df = pd.read_excel(file_paths["Plants"])
-    matching_plant_ids = df[mask]["PlantID"].tolist()
-    matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
-    st.write(matching_plant_names)
-
+    # Button to fetch matching plant names
+    if selected_attributes and st.button("Fetch Matching Plant Names"):
+        mask = True
+        for attr, value in attribute_value_dict.items():
+            mask &= (df[attr] == value)
+        plants_df = pd.read_excel(file_paths["Plants"])
+        matching_plant_ids = df[mask]["PlantID"].tolist()
+        matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
+        st.write(matching_plant_names)
 
 # Run the app
 app()
