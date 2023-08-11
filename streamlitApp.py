@@ -20,7 +20,7 @@ def app():
     df = pd.read_excel(file_paths[selected_file])
 
     # Multiselect to select multiple attributes
-    selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist())
+    selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist(), default=[])
 
     attribute_value_dict = {}
     for attribute in selected_attributes:
