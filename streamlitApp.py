@@ -21,7 +21,7 @@ def app():
 
     # Multiselect to select multiple attributes
     selected_attributes = []
-selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist())
+    selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist())
 
     attribute_value_dict = {}
     for attribute in selected_attributes:
