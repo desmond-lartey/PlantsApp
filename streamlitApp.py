@@ -1,19 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[4]:
-
-
-
-
-# In[5]:
-
-
-import streamlit as st
-
-
-# In[12]:
-
 import streamlit as st
 import pandas as pd
 
@@ -35,28 +19,29 @@ def app():
     # Load the selected file
     df = pd.read_excel(file_paths[selected_file])
 
-    # Dropdown to select an attribute (column name)
-    selected_attribute = st.multiselect("Select an Attribute:", df.columns.tolist())
+    # Multiselect to select multiple attributes
+    selected_attributes = st.multiselect("Select Attributes:", df.columns.tolist())
 
-    # Dropdown to select a value from the chosen attribute's unique values
-    unique_values = df[selected_attribute].dropna().unique().tolist()
-    selected_value = st.multiselect("Select a Value:", unique_values)
+    attribute_value_dict = {}
+    for attribute in selected_attributes:
+        unique_values = df[attribute].dropna().unique().tolist()
+        selected_value = st.selectbox(f"Select a Value for {attribute}:", unique_values)
+        attribute_value_dict[attribute] = selected_value
 
     # Button to fetch matching data
     if st.button("Fetch Matching Data"):
-        matching_data = df[df[selected_attribute] == selected_value]
+        mask = True
+        for attr, value in attribute_value_dict.items():
+            mask &= (df[attr] == value)
+        matching_data = df[mask]
         st.write(matching_data["PlantID"].tolist())
 
     # Button to fetch matching plant names (assuming "Plant name" column exists in "plants_corrected.xlsx")
     if st.button("Fetch Matching Plant Names"):
         plants_df = pd.read_excel(file_paths["Plants"])
-        matching_plant_ids = df[df[selected_attribute] == selected_value]["PlantID"].tolist()
+        matching_plant_ids = df[mask]["PlantID"].tolist()
         matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
         st.write(matching_plant_names)
 
 # Run the app
 app()
-
-
-# In[ ]:
-
