@@ -31,9 +31,20 @@ def app():
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
+            
             selected_values_dict[f"{selected_file}_{attribute}"] = selected_values
 
-    # This is where you can add further logic and filtering based on the selected values
+    if st.button("Fetch Matching Data"):
+        results = []
+        for selected_file in selected_files:
+            df = pd.read_excel(file_paths[selected_file])
+            for attribute in selected_values_dict.keys():
+                if selected_file in attribute:
+                    mask = df[attribute.split('_')[1]].isin(selected_values_dict[attribute])
+                    df = df[mask]
+            results.extend(df["PlantID"].tolist())
+        
+        st.write("Matching Plant IDs:", list(set(results)))
 
 # Run the app
 app()
