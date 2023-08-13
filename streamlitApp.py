@@ -31,16 +31,15 @@ def landing_page():
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
 
 def check_ph_match(ph_string, ph_values):
-    for ph_val in ph_values:
-        segments = ph_string.split(',')
-        for segment in segments:
-            if '-' in segment:
-                low, high = map(float, segment.split('-'))
-                if low <= ph_val <= high:
-                    return True
-            else:
-                if float(segment) == ph_val:
-                    return True
+    segments = ph_string.replace(",", ".").split(",")
+    for segment in segments:
+        if '-' in segment:
+            low, high = map(float, segment.strip().split('-'))
+            if any(low <= ph_val <= high for ph_val in ph_values):
+                return True
+        else:
+            if float(segment.strip()) in ph_values:
+                return True
     return False
 
 def app():
@@ -64,10 +63,10 @@ def app():
                 ph_values = []
                 for ph_val in selected_ph:
                     if '-' in ph_val:
-                        ph_start, ph_end = map(int, ph_val.split('-'))
-                        ph_values.extend(list(range(ph_start, ph_end + 1)))
+                        ph_start, ph_end = map(float, ph_val.split('-'))
+                        ph_values.extend(list(range(int(ph_start), int(ph_end) + 1)))
                     else:
-                        ph_values.append(int(ph_val))
+                        ph_values.append(float(ph_val))
 
                 # Filter the DataFrame based on the pH values
                 mask = df[attribute].astype(str).apply(lambda x: check_ph_match(x, ph_values))
