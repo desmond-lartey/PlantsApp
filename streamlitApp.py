@@ -13,7 +13,7 @@ file_paths = {
 }
 
 def landing_page():
-    st.title("Sustainable Green Concept")
+    st.title("Sustainable Green")
     st.image("https://www.thespruce.com/thmb/S15sM3N7Zir_xQBGa14Km6gJuCM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/the-difference-between-trees-and-shrubs-3269804-hero-a4000090f0714f59a8ec6201ad250d90.jpg", caption="Plant Image", use_column_width=True)
     st.write("""
     ### What do we want to do?
