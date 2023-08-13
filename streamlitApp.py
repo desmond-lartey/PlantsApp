@@ -16,7 +16,7 @@ def landing_page():
     st.title("Sustainable Green")
 
     # Create columns for images
-    col1, col2, col3, col4 = st.beta_columns(4)
+    col1, col2, col3, col4 = st.columns(4)
 
     # Display images side by side
     col1.image("https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg", caption="Plant Image 1", width=24)
