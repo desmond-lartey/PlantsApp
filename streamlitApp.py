@@ -70,19 +70,25 @@ def app():
         if not selected_values_dict:
             st.warning("Please select attributes and values first.")
             return
-
+    
         results = []
         for file, attr in selected_values_dict:
             if file not in file_paths:
                 continue
             df = pd.read_excel(file_paths[file])
-            mask = df[attr].isin(selected_values_dict[(file, attr)])
+            
+            # Adjust the mask logic for pH to accommodate ranges
+            if file == 'Climate' and attr == 'pH':
+                mask = df[attr].between(min(selected_values_dict[(file, attr)]), max(selected_values_dict[(file, attr)]))
+            else:
+                mask = df[attr].isin(selected_values_dict[(file, attr)])
+            
             results.extend(df[mask]["PlantID"].tolist())
         
         plants_df = pd.read_excel(file_paths["Plants"])
         matching_plant_ids = list(set(results))
         matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
-
+    
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
