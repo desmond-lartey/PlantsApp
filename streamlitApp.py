@@ -31,7 +31,7 @@ def landing_page():
     
     #st.image("path_to_plant_image_1.jpg", caption="Sample Plant Image 1", use_column_width=True)  # Replace with the actual path or URL
     #st.image("path_to_plant_image_2.jpg", caption="Sample Plant Image 2", use_column_width=True)  # Replace with the actual path or URL
-    st.image("https://link-to-image-from-unsplash-or-pixabay.jpg", caption="Plant Image", use_column_width=True)
+    st.image("https://www.thespruce.com/thmb/S15sM3N7Zir_xQBGa14Km6gJuCM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/the-difference-between-trees-and-shrubs-3269804-hero-a4000090f0714f59a8ec6201ad250d90.jpg", caption="Plant Image", use_column_width=True)
 
     st.write("[Go to main project page](#)")  # Replace # with the actual link to your main project page
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
