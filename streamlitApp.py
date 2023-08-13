@@ -12,40 +12,36 @@ file_paths = {
     "Plants": "data/plants_corrected.xlsx"
 }
 
-def check_ph_match(ph_string, ph_values):
-    segments = ph_string.split(',')
-    for segment in segments:
-        if '-' in segment:
-            low, high = map(float, segment.split('-'))
-            if any(val in range(int(low), int(high)+1) for val in ph_values):
-                return True
-        else:
-            if float(segment) in ph_values:
-                return True
-    return False
-
 def landing_page():
     st.title("Sustainable Green")
-
-    # Create columns for images
     col1, col2, col3, col4 = st.columns(4)
-
-    # Display images side by side
-    col1.image("https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg", caption="Plant Image 1", width=200)
-    col2.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-bareroot-min-e1557303366820.jpg", caption="Plant Image 2", width=200)
-    col3.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-multiplates-min-e1557303346561.jpg", caption="Plant Image 3", width=200)
-    col4.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-p9-min-e1557303326673.jpg", caption="Plant Image 4", width=200)
-
+    col1.image("https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg", caption="Plant Image", width=150)
+    col2.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-bareroot-min-e1557303366820.jpg", caption="Plant Image", width=150)
+    col3.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-multiplates-min-e1557303346561.jpg", caption="Plant Image", width=150)
+    col4.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-p9-min-e1557303326673.jpg", caption="Plant Image", width=150)
     st.write("""
     ### What do we want to do?
     We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun-city shadow/shading, and types of plants currently grown.
     
     ### Our Solution
     Plants have a role in sustainable landscapes. We have a catalogue of plants species with over 30 functional qualities.
+    
     """)
-
     st.write("[Go to main project page](#)")  # Replace # with the actual link to your main project page
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
+
+def check_ph_match(ph_string, ph_values):
+    for ph_val in ph_values:
+        segments = ph_string.split(',')
+        for segment in segments:
+            if '-' in segment:
+                low, high = map(float, segment.split('-'))
+                if low <= ph_val <= high:
+                    return True
+            else:
+                if float(segment) == ph_val:
+                    return True
+    return False
 
 def app():
     landing_page()
@@ -63,15 +59,16 @@ def app():
         for attribute in selected_attributes:
             if selected_file == 'Climate' and attribute == 'PH':
                 ph_options = [str(i) for i in range(1, 15)] + [f"{i}-{i+2}" for i in range(1, 13)]
-                selected_ph = st.selectbox('Select pH value or range:', ph_options)
+                selected_ph = st.multiselect('Select pH value or range:', ph_options)
 
-                if '-' in selected_ph:
-                    ph_start, ph_end = map(int, selected_ph.split('-'))
-                    ph_values = list(range(ph_start, ph_end + 1))
-                else:
-                    ph_value = int(selected_ph)
-                    ph_values = [ph_value]
-                
+                ph_values = []
+                for ph_val in selected_ph:
+                    if '-' in ph_val:
+                        ph_start, ph_end = map(int, ph_val.split('-'))
+                        ph_values.extend(list(range(ph_start, ph_end + 1)))
+                    else:
+                        ph_values.append(int(ph_val))
+
                 # Filter the DataFrame based on the pH values
                 mask = df[attribute].astype(str).apply(lambda x: check_ph_match(x, ph_values))
                 selected_values_dict[(selected_file, attribute)] = df[mask]["PlantID"].tolist()
