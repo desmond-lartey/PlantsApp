@@ -13,25 +13,17 @@ file_paths = {
 }
 
 def landing_page():
-    st.title("Sustainable Green Concept Plan for Agro-NL Consult SolutionS B.V")
-    
+    st.title("Sustainable Green Concept")
+    st.image("https://www.thespruce.com/thmb/S15sM3N7Zir_xQBGa14Km6gJuCM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/the-difference-between-trees-and-shrubs-3269804-hero-a4000090f0714f59a8ec6201ad250d90.jpg", caption="Plant Image", use_column_width=True)
     st.write("""
-    ### Why do we do this?
-    Countries are at different phases of spatial development. Population increase and growing economies with less plan for nature put countries at risk of environmental hazards. Our urban green concept aims to initiate a dialogue among municipalities, localities, and governments on the need for a high-level focus on sustainability.
-    
     ### What do we want to do?
-    We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun/city shadow/shading, and types of plants currently grown.
+    We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun-city shadow/shading, and types of plants currently grown.
     
     ### Our Solution
-    We provide innovative solutions including vertical greening, roof greening, and strong root plants for snow storms. Our goal is to create sustainable, functional green spaces in cities, making them healthier and more livable.
+    Plants have a role in sustainable landscapes. We have a catalogue of plants species with over 30 functional qualities.
     
-    ### Our Unique Proposition
-    Agro-NL is unique in the European plant market, emphasizing Green, plants, and climate-sustainability.
     """)
     
-    #st.image("path_to_plant_image_1.jpg", caption="Sample Plant Image 1", use_column_width=True)  # Replace with the actual path or URL
-    #st.image("path_to_plant_image_2.jpg", caption="Sample Plant Image 2", use_column_width=True)  # Replace with the actual path or URL
-    st.image("https://www.thespruce.com/thmb/S15sM3N7Zir_xQBGa14Km6gJuCM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/the-difference-between-trees-and-shrubs-3269804-hero-a4000090f0714f59a8ec6201ad250d90.jpg", caption="Plant Image", use_column_width=True)
 
     st.write("[Go to main project page](#)")  # Replace # with the actual link to your main project page
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
