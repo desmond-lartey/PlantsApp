@@ -60,7 +60,9 @@ def app():
                     ph_value = int(selected_ph)
                     ph_values = [ph_value]
                 
-                selected_values_dict[(selected_file, attribute)] = ph_values
+                # Filter the DataFrame based on the pH values
+                mask = df[attr].astype(str).apply(lambda x: any([str(val) in x for val in ph_values]))
+                results.extend(df[mask]["PlantID"].tolist())
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
@@ -78,14 +80,7 @@ def app():
                 continue
             df = pd.read_excel(file_paths[file])
 
-            if file == 'Climate' and attr == 'PH':
-                masks = []
-                for ph_value in selected_values_dict[(file, attr)]:
-                    mask = df[attr].apply(lambda x: any([str(val) in x for val in map(str, range(ph_value, ph_value + 3))]))
-                    masks.append(mask)
-                combined_mask = pd.concat(masks, axis=1).any(axis=1)
-                results.extend(df[combined_mask]["PlantID"].tolist())
-            else:
+            if not (file == 'Climate' and attr == 'PH'):
                 mask = df[attr].isin(selected_values_dict[(selected_file, attribute)])
                 results.extend(df[mask]["PlantID"].tolist())
 
