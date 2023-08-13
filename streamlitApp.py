@@ -86,4 +86,10 @@ def app():
 
         plants_df = pd.read_excel(file_paths["Plants"])
         matching_plant_ids = list(set(results))
-        matching_plant_names = plants_df[plants_df["PlantID"].isin(match
+        matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
+
+        st.write("Matching Plant Names:")
+        st.write(matching_plant_names)
+
+# Run the app
+app()
