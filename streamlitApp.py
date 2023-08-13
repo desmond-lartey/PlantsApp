@@ -12,6 +12,18 @@ file_paths = {
     "Plants": "data/plants_corrected.xlsx"
 }
 
+def check_ph_match(ph_string, ph_values):
+    segments = ph_string.split(',')
+    for segment in segments:
+        if '-' in segment:
+            low, high = map(float, segment.split('-'))
+            if any(val in range(int(low), int(high)+1) for val in ph_values):
+                return True
+        else:
+            if float(segment) in ph_values:
+                return True
+    return False
+
 def landing_page():
     st.title("Sustainable Green")
 
@@ -61,7 +73,7 @@ def app():
                     ph_values = [ph_value]
                 
                 # Filter the DataFrame based on the pH values
-                mask = df[attr].astype(str).apply(lambda x: any([int(val) in range(int(x.split('-')[0]), int(x.split('-')[-1])+1) if '-' in x else int(x) for val in ph_values]))
+                mask = df[attr].astype(str).apply(lambda x: check_ph_match(x, ph_values))
                 selected_values_dict[(selected_file, attribute)] = df[mask]["PlantID"].tolist()
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
