@@ -32,12 +32,9 @@ def landing_page():
     Plants have a role in sustainable landscapes. We have a catalogue of plants species with over 30 functional qualities.
     """)
 
-    st.write("[Go to main project page](#)")  # Replace # with the actual link to the main project page when it completed
+    st.write("[Go to main project page](#)")  # Replace # with the actual link to your main project page
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
 
-def app():
-    landing_page()
-    
     # Dropdown to select a file
     selected_files = st.multiselect("Select Files:", list(file_paths.keys()))
     
@@ -48,29 +45,25 @@ def app():
         selected_attributes = st.multiselect(f"Select Attributes for {selected_file}:", df.columns.tolist(), key=selected_file)
 
         for attribute in selected_attributes:
-            if attribute in ["climate zone from", "climate zone till"]:
-                # Force the options to be a predefined set of climate zones
-                climate_zones = ["1a", "1b", "2a", "2b", "3a", "3b", "4a", "4b", "5a", "5b", "6a", "6b", "7a", "7b", "8a", "8b", "9a", "9b", "10a", "10b", "11a", "11b", "12a", "12b", "13a", "13b", "14a", "14b"]
-                selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", climate_zones, key=f"{selected_file}_{attribute}")
+            if selected_file == 'Climate' and attribute == 'pH':
+                # Provide pH value and range selection
+                ph_options = [str(i) for i in range(1, 15)] + [f"{i}-{i+2}" for i in range(1, 13)]
+                selected_ph = st.selectbox('Select pH value or range:', ph_options)
+
+                if '-' in selected_ph:
+                    # If a range is selected, get the start and end of the range
+                    ph_start, ph_end = map(int, selected_ph.split('-'))
+                    ph_values = list(range(ph_start, ph_end + 1))
+                else:
+                    # If a single value is selected, get all values from 1 up to the selected value
+                    ph_values = list(range(1, int(selected_ph) + 1))
+                
+                selected_values_dict[(selected_file, attribute)] = ph_values
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
-            selected_values_dict[(selected_file, attribute)] = selected_values
- if 'Climate' in selected_files:
-        if 'pH' in selected_values_dict.get(('Climate', 'pH'), []):
-            # Provide pH value and range selection
-            ph_options = [str(i) for i in range(1, 15)] + [f"{i}-{i+2}" for i in range(1, 13)]
-            selected_ph = st.selectbox('Select pH value or range:', ph_options)
+                selected_values_dict[(selected_file, attribute)] = selected_values
 
-            if '-' in selected_ph:
-                # If a range is selected, get the start and end of the range
-                ph_start, ph_end = map(int, selected_ph.split('-'))
-                ph_values = list(range(ph_start, ph_end + 1))
-            else:
-                # If a single value is selected, get all values from 1 up to the selected value
-                ph_values = list(range(1, int(selected_ph) + 1))
-            
-            selected_values_dict[('Climate', 'pH')] = ph_values
     # Fetch matching plant names
     if st.button("Fetch Matching Plant Names"):
         if not selected_values_dict:
