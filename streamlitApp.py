@@ -56,7 +56,21 @@ def app():
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
             selected_values_dict[(selected_file, attribute)] = selected_values
+ if 'Climate' in selected_files:
+        if 'pH' in selected_values_dict.get(('Climate', 'pH'), []):
+            # Provide pH value and range selection
+            ph_options = [str(i) for i in range(1, 15)] + [f"{i}-{i+2}" for i in range(1, 13)]
+            selected_ph = st.selectbox('Select pH value or range:', ph_options)
 
+            if '-' in selected_ph:
+                # If a range is selected, get the start and end of the range
+                ph_start, ph_end = map(int, selected_ph.split('-'))
+                ph_values = list(range(ph_start, ph_end + 1))
+            else:
+                # If a single value is selected, get all values from 1 up to the selected value
+                ph_values = list(range(1, int(selected_ph) + 1))
+            
+            selected_values_dict[('Climate', 'pH')] = ph_values
     # Fetch matching plant names
     if st.button("Fetch Matching Plant Names"):
         if not selected_values_dict:
