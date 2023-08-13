@@ -37,27 +37,28 @@ def landing_page():
 
 def app():
     landing_page()
-    
+
     # Dropdown to select a file
     selected_files = st.multiselect("Select Files:", list(file_paths.keys()))
-    
+
     selected_values_dict = {}
     for selected_file in selected_files:
         df = pd.read_excel(file_paths[selected_file])
+
         # Dropdown to select an attribute (column name)
         selected_attributes = st.multiselect(f"Select Attributes for {selected_file}:", df.columns.tolist(), key=selected_file)
 
         for attribute in selected_attributes:
-            if selected_file == 'Climate' and attribute == 'pH':
+            if selected_file == 'Climate' and attribute == 'PH':
                 ph_options = [str(i) for i in range(1, 15)] + [f"{i}-{i+2}" for i in range(1, 13)]
                 selected_ph = st.selectbox('Select pH value or range:', ph_options)
 
                 if '-' in selected_ph:
                     ph_start, ph_end = map(int, selected_ph.split('-'))
-                    ph_values = list(range(ph_start, ph_end + 1))
+                    ph_values = [f"{i}-{i+2}" for i in range(ph_start, ph_end + 1)] if ph_end - ph_start > 0 else [selected_ph]
                 else:
                     ph_value = int(selected_ph)
-                    ph_values = list(range(1, ph_value + 1))
+                    ph_values = [f"{i}-{i+2}" for i in range(1, ph_value + 1)]
                 
                 selected_values_dict[(selected_file, attribute)] = ph_values
             else:
@@ -70,25 +71,29 @@ def app():
         if not selected_values_dict:
             st.warning("Please select attributes and values first.")
             return
-    
+
         results = []
         for file, attr in selected_values_dict:
             if file not in file_paths:
                 continue
             df = pd.read_excel(file_paths[file])
-            
-            # Adjust the mask logic for pH to accommodate ranges
-            if file == 'Climate' and attr == 'pH':
-                mask = df[attr].between(min(selected_values_dict[(file, attr)]), max(selected_values_dict[(file, attr)]))
+
+            if file == 'Climate' and attr == 'PH':
+                masks = []
+                for ph_range in selected_values_dict[(file, attr)]:
+                    ph_start, ph_end = map(float, ph_range.replace(',', '.').split('-'))
+                    mask = (df[attr].str.split('-').str[0].astype(float) >= ph_start) & (df[attr].str.split('-').str[1].astype(float) <= ph_end)
+                    masks.append(mask)
+                combined_mask = pd.concat(masks, axis=1).any(axis=1)
+                results.extend(df[combined_mask]["PlantID"].tolist())
             else:
                 mask = df[attr].isin(selected_values_dict[(file, attr)])
-            
-            results.extend(df[mask]["PlantID"].tolist())
-        
+                results.extend(df[mask]["PlantID"].tolist())
+
         plants_df = pd.read_excel(file_paths["Plants"])
         matching_plant_ids = list(set(results))
         matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
-    
+
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
