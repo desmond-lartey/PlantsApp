@@ -61,8 +61,8 @@ def app():
                     ph_values = [ph_value]
                 
                 # Filter the DataFrame based on the pH values
-                mask = df[attr].astype(str).apply(lambda x: any([str(val) in x for val in ph_values]))
-                results.extend(df[mask]["PlantID"].tolist())
+                mask = df[attr].astype(str).apply(lambda x: any([int(val) in range(int(x.split('-')[0]), int(x.split('-')[1])+1) for val in ph_values]))
+                selected_values_dict[(selected_file, attribute)] = df[mask]["PlantID"].tolist()
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
@@ -86,10 +86,4 @@ def app():
 
         plants_df = pd.read_excel(file_paths["Plants"])
         matching_plant_ids = list(set(results))
-        matching_plant_names = plants_df[plants_df["PlantID"].isin(matching_plant_ids)]["Plant name"].tolist()
-
-        st.write("Matching Plant Names:")
-        st.write(matching_plant_names)
-
-# Run the app
-app()
+        matching_plant_names = plants_df[plants_df["PlantID"].isin(match
