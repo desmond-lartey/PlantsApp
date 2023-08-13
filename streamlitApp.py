@@ -61,7 +61,7 @@ def app():
                     ph_values = [ph_value]
                 
                 # Filter the DataFrame based on the pH values
-                mask = df[attr].astype(str).apply(lambda x: any([int(val) in range(int(x.split('-')[0]), int(x.split('-')[1])+1) for val in ph_values]))
+                mask = df[attr].astype(str).apply(lambda x: any([int(val) in range(int(x.split('-')[0]), int(x.split('-')[-1])+1) if '-' in x else int(x) for val in ph_values]))
                 selected_values_dict[(selected_file, attribute)] = df[mask]["PlantID"].tolist()
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
