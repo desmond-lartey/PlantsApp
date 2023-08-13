@@ -30,6 +30,22 @@
     <li>Choose the attributes you're interested in.</li>
     <li>Filter out the values, and let the app suggest plants that match the criteria.</li>
     <li>Dive deeper into each plant's characteristics and understand its impact on the environment.</li>
+    <li>The problem here arises due to the way the pH values are represented in the dataset. The dataset contains a mixture of ranges, individual values, and even combined representations like "7 - 8,5". The comma-separated values add a layer of complexity to the filtering process.
+
+To simplify the filtering process and make the system more robust, I recommend the following approach:
+
+Standardize the Data Representation:
+
+Use a consistent format for ranges, for example, "5-8" (without spaces).
+If a plant can tolerate multiple, non-sequential ranges, consider adding separate rows for each range or breaking the pH column into multiple columns like pH_range1, pH_range2, etc.
+Avoid mixing ranges and single values in the same cell. Use separate rows if needed.
+Modify the App Logic:
+
+Once the data is standardized, the app's logic can be simplified. You can then filter based on the selected ranges without dealing with edge cases caused by the mixed format.
+Use a Database:
+
+If the dataset is expected to grow or if more advanced filtering and querying are anticipated in the future, consider moving from an Excel-based system to a database. A relational database would allow for more structured data storage and easier querying.
+For now, if you can adjust the data to follow the first recommendation, it will significantly simplify the process. If you provide a standardized dataset, I can help further with the code to ensure it works as expected</li>.
 </ol>
 
 <h2>Final Thoughts</h2>
