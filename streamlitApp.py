@@ -29,9 +29,10 @@ def landing_page():
     Agro-NL is unique in the European plant market, emphasizing Green, plants, and climate-sustainability.
     """)
     
-    st.image("path_to_plant_image_1.jpg", caption="Sample Plant Image 1", use_column_width=True)  # Replace with the actual path or URL
-    st.image("path_to_plant_image_2.jpg", caption="Sample Plant Image 2", use_column_width=True)  # Replace with the actual path or URL
-    
+    #st.image("path_to_plant_image_1.jpg", caption="Sample Plant Image 1", use_column_width=True)  # Replace with the actual path or URL
+    #st.image("path_to_plant_image_2.jpg", caption="Sample Plant Image 2", use_column_width=True)  # Replace with the actual path or URL
+    st.image("https://link-to-image-from-unsplash-or-pixabay.jpg", caption="Plant Image", use_column_width=True)
+
     st.write("[Go to main project page](#)")  # Replace # with the actual link to your main project page
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
 
