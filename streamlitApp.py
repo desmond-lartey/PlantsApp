@@ -55,7 +55,7 @@ def app():
         st.write(matching_plant_names)
 
         st.write("Matching Plant IDs:")
-        st.write(matching_plant_ids)
+        #st.write(matching_plant_ids)
 
 # Run the app
 app()
