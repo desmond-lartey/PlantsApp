@@ -2,9 +2,9 @@
 
 <div style="display: flex; justify-content: space-between;">
     <img src="https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg" alt="Image 1" style="width: 24%; margin-right: 1%;">
-    <img src="https://agro-nl.nl/assortment/trees/open-ground/" alt="Image 2" style="width: 24%; margin-right: 1%;">
-    <img src="https://agro-nl.nl/assortment/shrubs/bare-root-shrubs" alt="Image 3" style="width: 24%; margin-right: 1%;">
-    <img src="https://agro-nl.nl/assortment/shrubs/shrubs-in-p9" alt="Image 4" style="width: 24%;">
+    <img src="https://agro-nl.nl/wp-content/uploads/2019/04/shrubs-p9-min-e1557303401583.jpg" alt="Image 2" style="width: 24%; margin-right: 1%;">
+    <img src="https://agro-nl.nl/wp-content/uploads/2019/04/shrubs-full-ground-min-e1557303444131.jpg" alt="Image 3" style="width: 24%; margin-right: 1%;">
+    <img src="https://agro-nl.nl/wp-content/uploads/2019/04/trees-open-ground-e1557303524105.jpg" alt="Image 4" style="width: 24%;">
 </div>
 
 <h2>Overview</h2>
