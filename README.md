@@ -35,18 +35,18 @@
     ##Things to note
 There is a problem with "climate zone from and till" as well as ph values. It is not possible to use ranges, you really have to use a multi select to capture the information you need from this category. The issue might be that when we use the multiselect widget for values of "climate zone from" and "climate zone till", if the selected values in the dropdown are not part of the unique values present in the dataset, the widget may default back to a single selection. To get around this, The current app force the options in the multiselect widget to be a range of possible climate zones, irrespective of whether they exist in the dataset.
 
-##With PH
+
+    ##Things to note With PH
 Some values have spaces around the hyphen, such as "7 - 8,5". Some values use a comma, such as "6,1-7,5".
+    
+    
     ##To simplify the logic and avoid these inconsistencies, you can follow these steps:
-Standardize the pH values in the Excel sheet:
-Replace ",5" with ".5" for decimal values. For instance, "7 - 8,5" becomes "7-8.5".
-Remove spaces around the hyphen. For instance, "4 - 6" becomes "4-6".
-Ensure there are no trailing or leading spaces in the values. The problem here arises due to the way the pH values are represented in the dataset. The dataset contains a mixture of ranges, individual values, and even combined representations like "7 - 8,5". The comma-separated values add a layer of unnecessary complexity to the filtering process. 
+Standardize the pH values in the Excel sheet: Replace ",5" with ".5" for decimal values. For instance, "7 - 8,5" becomes "7-8.5".
+Remove spaces around the hyphen. For instance, "4 - 6" becomes "4-6". Ensure there are no trailing or leading spaces in the values. The problem here arises due to the way the pH values are represented in the dataset. The dataset contains a mixture of ranges, individual values, and even combined representations like "7 - 8,5". The comma-separated values add a layer of unnecessary complexity to the filtering process. 
 
-To simplify the filtering process and make the system more robust, I recommend the following approach:
-    ##Standardize the Data Representation
 
-Use a consistent format for ranges, for example, "5-8" (without spaces).
+    ##To simplify the filtering process and make the system more robust, I recommend the following approach:
+Standardize the Data Representation. Use a consistent format for ranges, for example, "5-8" (without spaces).
 If a plant can tolerate multiple, non-sequential ranges, maybe consider adding separate rows for each range or breaking the pH column into multiple columns like pH_range1, pH_range2, etc. Avoid mixing ranges and single values in the same cell. Use separate rows if needed.
 
 Once the data is standardized, the app's logic can be simplified. You can then filter based on the selected ranges without dealing with edge cases caused by the mixed format or even having to use multi select.
