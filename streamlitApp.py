@@ -12,14 +12,38 @@ file_paths = {
     "Plants": "data/plants_corrected.xlsx"
 }
 
+def landing_page():
+    st.title("Sustainable Green Concept Plan for Agro-NL Consult SolutionS B.V")
+    
+    st.write("""
+    ### Why do we do this?
+    Countries are at different phases of spatial development. Population increase and growing economies with less plan for nature put countries at risk of environmental hazards. Our urban green concept aims to initiate a dialogue among municipalities, localities, and governments on the need for a high-level focus on sustainability.
+    
+    ### What do we want to do?
+    We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun/city shadow/shading, and types of plants currently grown.
+    
+    ### Our Solution
+    We provide innovative solutions including vertical greening, roof greening, and strong root plants for snow storms. Our goal is to create sustainable, functional green spaces in cities, making them healthier and more livable.
+    
+    ### Our Unique Proposition
+    Agro-NL is unique in the European plant market, emphasizing Green, plants, and climate-sustainability.
+    """)
+    
+    st.image("path_to_plant_image_1.jpg", caption="Sample Plant Image 1", use_column_width=True)  # Replace with the actual path or URL
+    st.image("path_to_plant_image_2.jpg", caption="Sample Plant Image 2", use_column_width=True)  # Replace with the actual path or URL
+    
+    st.write("[Go to main project page](#)")  # Replace # with the actual link to your main project page
+    st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
+
 def app():
+    landing_page()
+    
     # Dropdown to select a file
     selected_files = st.multiselect("Select Files:", list(file_paths.keys()))
     
     selected_values_dict = {}
     for selected_file in selected_files:
         df = pd.read_excel(file_paths[selected_file])
-
         # Dropdown to select an attribute (column name)
         selected_attributes = st.multiselect(f"Select Attributes for {selected_file}:", df.columns.tolist(), key=selected_file)
 
@@ -53,9 +77,6 @@ def app():
 
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
-
-        st.write("Matching Plant IDs:")
-        #st.write(matching_plant_ids)
 
 # Run the app
 app()
