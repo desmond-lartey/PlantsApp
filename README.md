@@ -1,4 +1,4 @@
-<h1>## Sustainable Green Concept App</h1>
+<h1> Sustainable Green Concept App</h1>
 
 <div style="display: flex; justify-content: space-between;">
     <img src="https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg" alt="Image 1" style="width: 24%; margin-right: 1%;">
