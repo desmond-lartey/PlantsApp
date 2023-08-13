@@ -55,10 +55,10 @@ def app():
 
                 if '-' in selected_ph:
                     ph_start, ph_end = map(int, selected_ph.split('-'))
-                    ph_values = [f"{i}-{i+2}" for i in range(ph_start, ph_end + 1)] if ph_end - ph_start > 0 else [selected_ph]
+                    ph_values = list(range(ph_start, ph_end + 1))
                 else:
                     ph_value = int(selected_ph)
-                    ph_values = [f"{i}-{i+2}" for i in range(1, ph_value + 1)]
+                    ph_values = [ph_value]
                 
                 selected_values_dict[(selected_file, attribute)] = ph_values
             else:
@@ -80,14 +80,13 @@ def app():
 
             if file == 'Climate' and attr == 'PH':
                 masks = []
-                for ph_range in selected_values_dict[(file, attr)]:
-                    ph_start, ph_end = map(float, ph_range.replace(',', '.').split('-'))
-                    mask = (df[attr].str.split('-').str[0].astype(float) >= ph_start) & (df[attr].str.split('-').str[1].astype(float) <= ph_end)
+                for ph_value in selected_values_dict[(file, attr)]:
+                    mask = df[attr].apply(lambda x: any([str(val) in x for val in map(str, range(ph_value, ph_value + 3))]))
                     masks.append(mask)
                 combined_mask = pd.concat(masks, axis=1).any(axis=1)
                 results.extend(df[combined_mask]["PlantID"].tolist())
             else:
-                mask = df[attr].isin(selected_values_dict[(file, attr)])
+                mask = df[attr].isin(selected_values_dict[(selected_file, attribute)])
                 results.extend(df[mask]["PlantID"].tolist())
 
         plants_df = pd.read_excel(file_paths["Plants"])
