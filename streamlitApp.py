@@ -73,7 +73,7 @@ def app():
                     ph_values = [ph_value]
                 
                 # Filter the DataFrame based on the pH values
-                mask = df[attr].astype(str).apply(lambda x: check_ph_match(x, ph_values))
+                mask = df[attribute].astype(str).apply(lambda x: check_ph_match(x, ph_values))
                 selected_values_dict[(selected_file, attribute)] = df[mask]["PlantID"].tolist()
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
@@ -87,13 +87,13 @@ def app():
             return
 
         results = []
-        for file, attr in selected_values_dict:
+        for file, attribute in selected_values_dict:
             if file not in file_paths:
                 continue
             df = pd.read_excel(file_paths[file])
 
-            if not (file == 'Climate' and attr == 'PH'):
-                mask = df[attr].isin(selected_values_dict[(selected_file, attribute)])
+            if not (file == 'Climate' and attribute == 'PH'):
+                mask = df[attribute].isin(selected_values_dict[(selected_file, attribute)])
                 results.extend(df[mask]["PlantID"].tolist())
 
         plants_df = pd.read_excel(file_paths["Plants"])
