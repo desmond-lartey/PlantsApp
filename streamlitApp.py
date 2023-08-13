@@ -57,7 +57,7 @@ def app():
 
         for attribute in selected_attributes:
             if selected_file == 'Climate' and attribute == 'PH':
-                ph_options = [str(i) for i in range(1, 15)] + [f"{i}-{i+2}" for i in range(1, 13)]
+                ph_options = [str(i) for i in range(1, 15)] + [f"{i}-{i+2}" for i in range(1, 13)] + ["5-8"]
                 selected_ph = st.multiselect('Select pH value or range:', ph_options)
 
                 ph_values = []
