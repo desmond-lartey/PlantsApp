@@ -26,22 +26,34 @@
 
 <h2>Getting Started with the App</h2>
 <ol>
-    <li>Remember that the app initialise a 1-to-1 relational algorithm if you select a sengle file, value or attributes. This means that there is a strict and accurate match based on how it is entered in the dataset. The one-to-one relation will not work well if you select multiples. This can work well somtimes but affect referential integrity. The issue might be that when we use the multiselect widget for values of "climate zone from" and "climate zone till", if the selected values in the dropdown are not part of the unique values present in the dataset, the widget may default back to a single selection. To get around this, The current app force the options in the multiselect widget to be a range of possible climate zones, irrespective of whether they exist in the dataset.</li>
-    <li>Select the relevant datasets.</li>
+    Remember that the app initialise a 1-to-1 relational algorithm if you select a sengle file, value or attributes. This means that there is a strict and accurate match based on how it is entered in the dataset. The one-to-one relation will not work well if you select multiples. This can work well somtimes but affect referential integrity.</li>
+    <li>Select the relevant datasets.
     <li>Choose the attributes you're interested in.</li>
     <li>Filter out the values, and let the app suggest plants that match the criteria.</li>
     <li>Dive deeper into each plant's characteristics and understand its impact on the environment.</li>
-    <li>There is a problem with "climate zone from and till" as well as ph values. It is not possible to use ranges, you really have to use a multi select to capture the information you need from this category. For instance with PH: The problem here arises due to the way the pH values are represented in the dataset. The dataset contains a mixture of ranges, individual values, and even combined representations like "7 - 8,5". The comma-separated values add a layer of unnecessary complexity to the filtering process. To simplify the filtering process and make the system more robust, I recommend the following approach:
 
-<h2>Standardize the Data Representation:</h2
+    ##Things to note
+There is a problem with "climate zone from and till" as well as ph values. It is not possible to use ranges, you really have to use a multi select to capture the information you need from this category. The issue might be that when we use the multiselect widget for values of "climate zone from" and "climate zone till", if the selected values in the dropdown are not part of the unique values present in the dataset, the widget may default back to a single selection. To get around this, The current app force the options in the multiselect widget to be a range of possible climate zones, irrespective of whether they exist in the dataset.
+
+##With PH
+Some values have spaces around the hyphen, such as "7 - 8,5". Some values use a comma, such as "6,1-7,5".
+
+##To simplify the logic and avoid these inconsistencies, you can follow these steps:
+Standardize the pH values in the Excel sheet:
+Replace ",5" with ".5" for decimal values. For instance, "7 - 8,5" becomes "7-8.5".
+Remove spaces around the hyphen. For instance, "4 - 6" becomes "4-6".
+Ensure there are no trailing or leading spaces in the values. The problem here arises due to the way the pH values are represented in the dataset. The dataset contains a mixture of ranges, individual values, and even combined representations like "7 - 8,5". The comma-separated values add a layer of unnecessary complexity to the filtering process. 
+
+To simplify the filtering process and make the system more robust, I recommend the following approach:
+##Standardize the Data Representation
 
 Use a consistent format for ranges, for example, "5-8" (without spaces).
-If a plant can tolerate multiple, non-sequential ranges, consider adding separate rows for each range or breaking the pH column into multiple columns like pH_range1, pH_range2, etc.
-Avoid mixing ranges and single values in the same cell. Use separate rows if needed.
+If a plant can tolerate multiple, non-sequential ranges, maybe consider adding separate rows for each range or breaking the pH column into multiple columns like pH_range1, pH_range2, etc. Avoid mixing ranges and single values in the same cell. Use separate rows if needed.
 
-Once the data is standardized, the app's logic can be simplified. You can then filter based on the selected ranges without dealing with edge cases caused by the mixed format.
-<h2>Use a Database:</h2>
-If the dataset is expected to grow or if more advanced filtering and querying are anticipated in the future, consider moving from this Excel-based system app to the postgresQL database which has been designed on the main computer. The relational database allows for more structured data storage, easier querying and advance calculations</li>.
+Once the data is standardized, the app's logic can be simplified. You can then filter based on the selected ranges without dealing with edge cases caused by the mixed format or even having to use multi select.
+
+<h2>Use the installed Database for advance operation of Matrix:</h2>
+If the dataset is expected to grow or if more advanced filtering and querying are anticipated in the future, consider moving from this Excel-based system app to the postgresQL database which has been designed on the main computer. The relational database allows for more structured data storage, easier querying and advanced calculations</li>.
 </ol>
 
 <h2>Final Thoughts</h2>
