@@ -37,15 +37,14 @@ There is a problem with "climate zone from and till" as well as ph values. It is
 
 ##With PH
 Some values have spaces around the hyphen, such as "7 - 8,5". Some values use a comma, such as "6,1-7,5".
-
-##To simplify the logic and avoid these inconsistencies, you can follow these steps:
+    ##To simplify the logic and avoid these inconsistencies, you can follow these steps:
 Standardize the pH values in the Excel sheet:
 Replace ",5" with ".5" for decimal values. For instance, "7 - 8,5" becomes "7-8.5".
 Remove spaces around the hyphen. For instance, "4 - 6" becomes "4-6".
 Ensure there are no trailing or leading spaces in the values. The problem here arises due to the way the pH values are represented in the dataset. The dataset contains a mixture of ranges, individual values, and even combined representations like "7 - 8,5". The comma-separated values add a layer of unnecessary complexity to the filtering process. 
 
 To simplify the filtering process and make the system more robust, I recommend the following approach:
-##Standardize the Data Representation
+    ##Standardize the Data Representation
 
 Use a consistent format for ranges, for example, "5-8" (without spaces).
 If a plant can tolerate multiple, non-sequential ranges, maybe consider adding separate rows for each range or breaking the pH column into multiple columns like pH_range1, pH_range2, etc. Avoid mixing ranges and single values in the same cell. Use separate rows if needed.
