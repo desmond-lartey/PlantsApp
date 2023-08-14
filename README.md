@@ -52,8 +52,10 @@ If a plant can tolerate multiple, non-sequential ranges, maybe consider adding s
 Once the data is standardized, the app's logic can be simplified. You can then filter based on the selected ranges without dealing with edge cases caused by the mixed format or even having to use multi select.
 
 <h2>Use the installed Database for advanced operation of Matrix:</h2>
-If the dataset is expected to grow or if more advanced filtering and querying are anticipated in the future, consider moving from this Excel-based system app to the postgresQL database which has been designed on the main computer. The relational database allows for more structured data storage, easier querying and advanced queries. <a href="https://agro-nl.nl/">See the app version of the geodatabase which include queries at the country level, climate, and recommended species for local adaptation strategies</a> </li>.
+If the dataset is expected to grow or if more advanced filtering and querying are anticipated in the future, consider moving from this Excel-based system app to the postgresQL database which has been designed on the main computer. The relational database allows for more structured data storage, easier querying and advanced queries.
 </ol>
+
+<p>See the app version of the geodatabase which includes queries at the country level, climate, and recommended species for local adaptation strategies, <a href="https://agro-nl.nl/">visit the geodatabase website</a>.</p>
 
 <h2>Final Thoughts</h2>
 <p>Urban green spaces are more than just decorative elements; they are essential components of city infrastructure. The Sustainable Green Concept App is a step towards realizing a vision of cities that are not only developed but also green, sustainable, and considerate of the planet's well-being.</p>
