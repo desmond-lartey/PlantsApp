@@ -59,6 +59,9 @@ If the dataset is expected to grow or if more advanced filtering and querying ar
 
 <p>See the app version of the geodatabase which includes queries at the country level, climate, and recommended species for local adaptation strategies, <a href="https://agro-nl.nl/">visit the geodatabase website</a>.</p>
 
+<h2>How to update the app online from the Excel sheet</h2>
+<p>You have to open the folder 'data' in the list of files here. Then download the file you want to update. For instance 'biodiversity_corrected'. Go to the matrix and look for the column biodiversity you want to pick information from. Copy a single column from the matrix. Now you can see that the 'biodiversity_corrected file has the same column identity as the one you have copied. Create a 4 empty row on the top of the header in the file. Paste what you copied in the exact column. Now rename the header you posted this info as the original name. Delete the four rows you created, this only helped you to paste the correct rows exactly from the matrix to the file. Save the file. Make sure you have saved it in xlsl/Excel workbook and not in csv. You have permission to upload new files in the github repository of the PlantApp. So delete the old file and replace the new one. Remember that it should have the same name as before.</p>
+
 <h2>Final Thoughts</h2>
 <p>Urban green spaces are more than just decorative elements; they are essential components of city infrastructure. The Sustainable Green Concept App is a step towards realizing a vision of cities that are not only developed but also green, sustainable, and considerate of the planet's well-being.</p>
 
