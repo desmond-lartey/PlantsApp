@@ -31,8 +31,7 @@ def landing_page():
     Plants have a role in sustainable landscapes. We have a catalogue of plants species with over 30 functional qualities.
     """)
 
-    st.write("[Read the documentation about the app and how it functions here](https://github.com/desmond-lartey/PlantsApp/edit/Fires/README.md)")  # Replace # with the actual link to your main project page
-    st.write("[Read the documentation about the app and how it functions here](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)")
+    st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")  # Replace # with the actual link to your main project page
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
 
 def app():
