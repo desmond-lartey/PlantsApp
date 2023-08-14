@@ -28,10 +28,10 @@ def landing_page():
     We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun-city shadow/shading, and types of plants currently grown.
     
     ### Our Solution
-    Plants have a role in sustainable landscapes. We have a catalogue of plants species with over 30 functional qualities.
+    Plants have a role in sustainable landscapes. We have a catalogue of plant species with over 30 functional qualities.
     """)
 
-    st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")  # Replace # with the actual link to your main project page
+    st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")  # Display documentation link
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
 
 def app():
