@@ -26,7 +26,7 @@
 
 <h2>Getting Started with the App</h2>
 <ol>
-    Remember that the app initialise a 1-to-1 relational algorithm if you select a sengle file, value or attributes. This means that there is a strict and accurate match based on how it is entered in the dataset. The one-to-one relation will not work well if you select multiples. This can work well somtimes but affect referential integrity.</li>
+    Remember that the app initialise a 1-to-1 relational algorithm if you select a single file, value or attributes. This means that there is a strict and accurate match based on how it is entered in the dataset. The one-to-one relation will not work well if you select multiples. This can work well sometimes but affect referential integrity.</li>
     <li>Select the relevant datasets.
     <li>Choose the attributes you're interested in.</li>
     <li>Filter out the values, and let the app suggest plants that match the criteria.</li>
