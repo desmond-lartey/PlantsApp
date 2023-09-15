@@ -15,50 +15,7 @@ file_paths = {
     "Plants": "data/plants_corrected.xlsx"
 }
 
-def landing_page():
-    st.title("Sustainable Green")
-
-    # Create columns for images
-    col1, col2, col3, col4 = st.columns(4)
-    # Display images side by side
-    col1.image("https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg", caption="Plant Image 1", width=200)
-    col2.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-bareroot-min-e1557303366820.jpg", caption="Plant Image 2", width=200)
-    col3.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-multiplates-min-e1557303346561.jpg", caption="Plant Image 3", width=200)
-    col4.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-p9-min-e1557303326673.jpg", caption="Plant Image 4", width=200)
-
-    st.write("""
-    ### What do we want to do?
-    We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun-city shadow/shading, and types of plants currently grown.
-    
-    ### Our Solution
-    Plants have a role in sustainable landscapes. We have a catalogue of plant species with over 30 functional qualities.
-    """)
-
-    st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")  # Display documentation link
-    st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
-
-def get_general_colors(colors):
-    general_colors = ['yellow', 'red', 'green', 'white', 'violet', 'purple', 'orange', 'cream']
-    return [color for color in general_colors if any(color in col for col in colors)]
-
-def get_specific_colors(general_color, colors):
-    return [color for color in colors if general_color in color]
-
-def enhanced_two_step_selection(df, column_name):
-    unique_colors = sorted(df[column_name].dropna().unique().tolist())
-    general_colors = get_general_colors(unique_colors)
-    
-    selected_general_colors = st.multiselect(f"Select General Colors for {column_name}:", general_colors)
-    
-    related_colors = []
-    for general_color in selected_general_colors:
-        specific_colors = get_specific_colors(general_color, unique_colors)
-        selected_specific_colors = st.multiselect(f"Select Specific Colors related to {general_color}:", specific_colors)
-        related_colors.extend(selected_specific_colors)
-    
-    return related_colors
-
-def app():
+def modified_app():
     landing_page()
     
     # Dropdown to select a file
@@ -76,6 +33,7 @@ def app():
                 climate_zones = ["1a", "1b", "2a", "2b", "3a", "3b", "4a", "4b", "5a", "5b", "6a", "6b", "7a", "7b", "8a", "8b", "9a", "9b", "10a", "10b", "11a", "11b", "12a", "12b", "13a", "13b", "14a", "14b"]
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", climate_zones, key=f"{selected_file}_{attribute}")
             elif selected_file == "Ornamental" and attribute == "flower color":
+                # Use the enhanced two-step selection for the flower color column in the Ornamental file
                 selected_values = enhanced_two_step_selection(df, attribute)
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
@@ -102,6 +60,8 @@ def app():
 
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
+
+# The modified app function is ready for you to integrate into your Streamlit environment and test.
 
 # Run the app
 app()
