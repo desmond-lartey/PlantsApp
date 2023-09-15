@@ -8,7 +8,7 @@ file_paths = {
     "Functional": "data/functional_corrected.xlsx",
     "Hazard": "data/hazards_corrected.xlsx",
     "Maintenance": "data/maintenance_corrected.xlsx",
-    "Ornamental": "/mnt/data/ornamental_corrected.xlsx",
+    "Ornamental": "/mnt/data/ornamental_corrected.xlsx",  
     "Plants": "data/plants_corrected.xlsx"
 }
 
@@ -34,22 +34,19 @@ def landing_page():
     st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
 
-def get_general_colors(colors):
-    general_colors = ['yellow', 'red', 'green', 'white', 'violet', 'purple', 'orange', 'cream']
-    return [color for color in general_colors if any(color in col for col in colors)]
-
-def get_specific_colors(general_color, colors):
-    return [color for color in colors if general_color in color]
+def get_general_colors():
+    return ['yellow', 'red', 'green', 'white', 'violet', 'purple', 'orange', 'cream']
 
 def enhanced_two_step_selection(df, column_name):
-    unique_colors = sorted(df[column_name].dropna().unique().tolist())
-    general_colors = get_general_colors(unique_colors)
+    unique_colors = sorted(df[column_name].dropna().str.lower().unique().tolist())
+    
+    general_colors = get_general_colors()
     
     selected_general_colors = st.multiselect(f"Select General Colors for {column_name}:", general_colors)
     
     related_colors = []
     for general_color in selected_general_colors:
-        specific_colors = get_specific_colors(general_color, unique_colors)
+        specific_colors = [color for color in unique_colors if general_color in color]
         selected_specific_colors = st.multiselect(f"Select Specific Colors related to {general_color}:", specific_colors)
         related_colors.extend(selected_specific_colors)
     
@@ -101,8 +98,8 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
-# Link to the publication in the sidebar
-st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
+    # Link to the publication in the sidebar
+    st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
 
 # Run the modified app
 modified_app()
