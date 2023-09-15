@@ -8,7 +8,7 @@ file_paths = {
     "Functional": "data/functional_corrected.xlsx",
     "Hazard": "data/hazards_corrected.xlsx",
     "Maintenance": "data/maintenance_corrected.xlsx",
-    "Ornamental": "data/ornamental_corrected.xlsx",
+    "Ornamental": "/mnt/data/ornamental_corrected.xlsx",  # Updated path
     "Plants": "data/plants_corrected.xlsx"
 }
 
@@ -53,7 +53,11 @@ def app():
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", climate_zones, key=f"{selected_file}_{attribute}")
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
-                selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
+                # Use the enhanced multiselect for the Ornamental file
+                if selected_file == "Ornamental":
+                    selected_values = enhanced_multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
+                else:
+                    selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
             selected_values_dict[(selected_file, attribute)] = selected_values
 
     # Fetch matching plant names
