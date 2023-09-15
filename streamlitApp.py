@@ -1,17 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-# Dictionary to map file selection to its path
-file_paths = {
-    "Biodiversity": "data/biodiversity_corrected.xlsx",
-    "Climate": "data/climate_corrected.xlsx",
-    "Functional": "data/functional_corrected.xlsx",
-    "Hazard": "data/hazards_corrected.xlsx",
-    "Maintenance": "data/maintenance_corrected.xlsx",
-    "Ornamental": "/mnt/data/ornamental_corrected.xlsx",  
-    "Plants": "data/plants_corrected.xlsx"
-}
-
 def landing_page():
     st.title("Sustainable Green")
 
