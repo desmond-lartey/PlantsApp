@@ -8,7 +8,7 @@ file_paths = {
     "Functional": "data/functional_corrected.xlsx",
     "Hazard": "data/hazards_corrected.xlsx",
     "Maintenance": "data/maintenance_corrected.xlsx",
-    "Ornamental": "/mnt/data/ornamental_corrected.xlsx",  # Ensure to update the path based on your directory structure
+    "Ornamental": "/mnt/data/ornamental_corrected.xlsx",
     "Plants": "data/plants_corrected.xlsx"
 }
 
@@ -23,13 +23,13 @@ def landing_page():
     col3.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-multiplates-min-e1557303346561.jpg", caption="Plant Image 3", width=200)
     col4.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-p9-min-e1557303326673.jpg", caption="Plant Image 4", width=200)
 
-    st.write(
-    \"\"\"### What do we want to do?
+    st.write("""
+    ### What do we want to do?
     We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun-city shadow/shading, and types of plants currently grown.
     
     ### Our Solution
     Plants have a role in sustainable landscapes. We have a catalogue of plant species with over 30 functional qualities.
-    \"\"\")
+    """)
 
     st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
@@ -101,8 +101,8 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
+# Link to the publication in the sidebar
+st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
+
 # Run the modified app
 modified_app()
-"""
-
-script
