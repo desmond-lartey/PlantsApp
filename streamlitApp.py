@@ -1,3 +1,6 @@
+# Consolidating the entire modified Streamlit app
+
+script = """
 import streamlit as st
 import pandas as pd
 
@@ -8,7 +11,7 @@ file_paths = {
     "Functional": "data/functional_corrected.xlsx",
     "Hazard": "data/hazards_corrected.xlsx",
     "Maintenance": "data/maintenance_corrected.xlsx",
-    "Ornamental": "/mnt/data/ornamental_corrected.xlsx",  # Updated path
+    "Ornamental": "/mnt/data/ornamental_corrected.xlsx",  # Ensure to update the path based on your directory structure
     "Plants": "data/plants_corrected.xlsx"
 }
 
@@ -34,6 +37,27 @@ def landing_page():
     st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")  # Display documentation link
     st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.nl/)")
 
+def get_general_colors(colors):
+    general_colors = ['yellow', 'red', 'green', 'white', 'violet', 'purple', 'orange', 'cream']
+    return [color for color in general_colors if any(color in col for col in colors)]
+
+def get_specific_colors(general_color, colors):
+    return [color for color in colors if general_color in color]
+
+def enhanced_two_step_selection(df, column_name):
+    unique_colors = sorted(df[column_name].dropna().unique().tolist())
+    general_colors = get_general_colors(unique_colors)
+    
+    selected_general_colors = st.multiselect(f"Select General Colors for {column_name}:", general_colors)
+    
+    related_colors = []
+    for general_color in selected_general_colors:
+        specific_colors = get_specific_colors(general_color, unique_colors)
+        selected_specific_colors = st.multiselect(f"Select Specific Colors related to {general_color}:", specific_colors)
+        related_colors.extend(selected_specific_colors)
+    
+    return related_colors
+
 def app():
     landing_page()
     
@@ -51,13 +75,11 @@ def app():
                 # Force the options to be a predefined set of climate zones
                 climate_zones = ["1a", "1b", "2a", "2b", "3a", "3b", "4a", "4b", "5a", "5b", "6a", "6b", "7a", "7b", "8a", "8b", "9a", "9b", "10a", "10b", "11a", "11b", "12a", "12b", "13a", "13b", "14a", "14b"]
                 selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", climate_zones, key=f"{selected_file}_{attribute}")
+            elif selected_file == "Ornamental" and attribute == "flower color":
+                selected_values = enhanced_two_step_selection(df, attribute)
             else:
                 unique_values = sorted(df[attribute].dropna().unique().tolist())
-                # Use the enhanced multiselect for the Ornamental file
-                if selected_file == "Ornamental":
-                    selected_values = enhanced_multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
-                else:
-                    selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
+                selected_values = st.multiselect(f"Select Values for {attribute} in {selected_file}:", unique_values, key=f"{selected_file}_{attribute}")
             selected_values_dict[(selected_file, attribute)] = selected_values
 
     # Fetch matching plant names
@@ -83,3 +105,6 @@ def app():
 
 # Run the app
 app()
+"""
+
+script
