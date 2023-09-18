@@ -1,16 +1,27 @@
 import streamlit as st
 import pandas as pd
 
+# Define the paths to the Excel files
+file_paths = {
+    "Biodiversity": "data/biodiversity_corrected.xlsx",
+    "Climate": "data/climate_corrected.xlsx",
+    "Functional": "data/functional_corrected.xlsx",
+    "Hazard": "data/hazards_corrected.xlsx",
+    "Maintenance": "data/maintenance_corrected.xlsx",
+    "Ornamental": "data/ornamental_corrected.xlsx",
+    "Plants": "data/plants_corrected.xlsx"
+}
+
 def landing_page():
     st.title("Sustainable Green")
-
+    
     # Create columns for images
     col1, col2, col3, col4 = st.columns(4)
     # Display images side by side
-    col1.image("https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg", caption="Plant Image 1", width=200)
-    col2.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-bareroot-min-e1557303366820.jpg", caption="Plant Image 2", width=200)
-    col3.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-multiplates-min-e1557303346561.jpg", caption="Plant Image 3", width=200)
-    col4.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-p9-min-e1557303326673.jpg", caption="Plant Image 4", width=200)
+    col1.image("https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg", caption="#", width=200)
+    col2.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-bareroot-min-e1557303366820.jpg", caption="#", width=200)
+    col3.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-multiplates-min-e1557303346561.jpg", caption="#", width=200)
+    col4.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-p9-min-e1557303326673.jpg", caption="#", width=200)
 
     st.write("""
     ### What do we want to do?
