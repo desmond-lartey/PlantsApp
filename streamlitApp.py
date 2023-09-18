@@ -59,6 +59,16 @@ def enhanced_two_step_selection(df, column_name):
 
 
 def modified_app():
+        # Custom CSS
+    st.markdown("""
+        <style>
+            body {
+                background-image: url("https://www.hkinteriors.com/wp-content/uploads/2018/11/bg-useful-links.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        </style>
+    """, unsafe_allow_html=True)
     landing_page()
     
     # Dropdown to select a file
