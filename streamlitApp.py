@@ -12,6 +12,13 @@ file_paths = {
     "Plants": "data/plants_corrected.xlsx"
 }
 
+# Social Media Logos (Links to publicly available logos; remember to use proper licensing in production)
+facebook_logo = "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+twitter_logo = "https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg"
+instagram_logo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+
 def landing_page():
     st.title("Sustainable Urban Green")
     
@@ -113,9 +120,23 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
-    # Social Media Links
+     # Social Media Links with Logos
     st.write("#### Connect with us on Social Media:")
-    st.write("[Facebook](https://www.facebook.com/) • [Twitter](https://twitter.com/) • [Instagram](https://www.instagram.com/) • [LinkedIn](https://www.linkedin.com/) • [YouTube](https://www.youtube.com/)")
+    col1, col2, col3, col4, col5 = st.columns(5)
+    col1.image(facebook_logo, width=32)
+    col1.write("[Facebook](https://www.facebook.com/)")
+    
+    col2.image(twitter_logo, width=32)
+    col2.write("[Twitter](https://twitter.com/)")
+    
+    col3.image(instagram_logo, width=32)
+    col3.write("[Instagram](https://www.instagram.com/)")
+    
+    col4.image(linkedin_logo, width=32)
+    col4.write("[LinkedIn](https://www.linkedin.com/)")
+    
+    col5.image(youtube_logo, width=32)
+    col5.write("[YouTube](https://www.youtube.com/)")
 
     # Link to the publication in the sidebar
     st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
