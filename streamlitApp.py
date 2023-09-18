@@ -47,10 +47,16 @@ def enhanced_two_step_selection(df, column_name):
     related_colors = []
     for general_color in selected_general_colors:
         specific_colors = [color for color in unique_colors if general_color in color]
-        selected_specific_colors = st.multiselect(f"Select Specific Colors related to {general_color}:", specific_colors)
-        related_colors.extend(selected_specific_colors)
+        selected_specific_colors = st.multiselect(f"Select Specific Colors related to {general_color} (optional):", specific_colors)
+        
+        # If specific colors are selected, add them to the results
+        if selected_specific_colors:
+            related_colors.extend(selected_specific_colors)
+        else:
+            related_colors.extend(specific_colors)
     
     return related_colors
+
 
 def modified_app():
     landing_page()
