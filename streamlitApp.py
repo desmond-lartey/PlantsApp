@@ -57,8 +57,17 @@ def enhanced_two_step_selection(df, column_name):
     
     return related_colors
 
-
 def modified_app():
+    # Custom CSS
+    st.markdown("""
+        <style>
+            body {
+                background-image: url("https://www.hkinteriors.com/wp-content/uploads/2018/11/bg-useful-links.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        </style>
+    """, unsafe_allow_html=True)
     landing_page()
     
     # Dropdown to select a file
@@ -103,6 +112,10 @@ def modified_app():
 
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
+
+    # Social Media Links
+    st.write("#### Connect with us on Social Media:")
+    st.write("[Facebook](https://www.facebook.com/) • [Twitter](https://twitter.com/) • [Instagram](https://www.instagram.com/) • [LinkedIn](https://www.linkedin.com/) • [YouTube](https://www.youtube.com/)")
 
     # Link to the publication in the sidebar
     st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
