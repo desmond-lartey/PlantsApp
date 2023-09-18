@@ -14,7 +14,7 @@ file_paths = {
 
 # Social Media Logos (Links to publicly available logos; remember to use proper licensing in production)
 facebook_logo = "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-twitter_logo = "https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg"
+twitter_logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2HPo_08r3lhM_9yz3cufBPh9cwU5UMXay8Bisn0KZOQ&s"
 instagram_logo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
 linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
 youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
