@@ -69,7 +69,7 @@ def modified_app():
     st.markdown("""
         <style>
             body {
-                background-image: url("https://www.hkinteriors.com/wp-content/uploads/2018/11/bg-useful-links.jpg");
+                background-image: url("https://images.pexels.com/photos/6143369/pexels-photo-6143369.jpeg");
                 background-size: cover;
                 background-repeat: no-repeat;
             }
