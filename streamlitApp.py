@@ -13,7 +13,7 @@ file_paths = {
 }
 
 def landing_page():
-    st.title("Sustainable Urban Green with Plants")
+    st.title("Sustainable Urban Green")
     
     # Create columns for images
     col1, col2, col3, col4 = st.columns(4)
