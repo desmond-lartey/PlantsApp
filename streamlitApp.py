@@ -134,7 +134,7 @@ def modified_app():
     col3.write("[Instagram](https://www.instagram.com/)")
     
     col4.image(linkedin_logo, width=32)
-    col4.write("[LinkedIn](https://www.linkedin.com/)")
+    col4.write("[LinkedIn](https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/)")
     
     col5.image(youtube_logo, width=32)
     col5.write("[YouTube](https://www.youtube.com/)")
