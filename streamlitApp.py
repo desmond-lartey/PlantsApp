@@ -20,25 +20,16 @@ instagram_logo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_
 linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
 youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
 
-# Define the team members and their respective LinkedIn profile URLs
+# Base URL for the raw content from your GitHub repository
+base_url = "https://raw.githubusercontent.com/YourGitHubUsername/YourRepoName/main/data/"
+
+# Define the team members with their respective image filenames and LinkedIn profile URLs
 team_members = {
-    "Member 1": "LinkedIn_Profile_URL_1",
-    "Member 2": "LinkedIn_Profile_URL_2",
-    "Member 3": "https://media.licdn.com/dms/image/C4D03AQFUr4kgOCQzvg/profile-displayphoto-shrink_400_400/0/1639817756530?e=1701302400&v=beta&t=5QLjaEZV2NHa5ZXgzt9svldzI3QUcW3TtHo_NTAOTBU",
-    "Member 4": "LinkedIn_Profile_URL_3",
+    "Member 1": {"image": "filename1.jpg", "linkedin": "LinkedIn_Profile_URL_1"},
+    "Member 2": {"image": "filename2.jpg", "linkedin": "LinkedIn_Profile_URL_2"},
+    "Member 3": {"image": "filename3.jpg", "linkedin": "LinkedIn_Profile_URL_3"},
     # ... and so on for all members
 }
-
-# ...
-
-# Display clickable links to team members' LinkedIn profiles
-st.write("#### Meet our Team:")
-cols = st.columns(len(team_members))
-
-for idx, (name, url) in enumerate(team_members.items()):
-    cols[idx].markdown(f"[{name}]({url})")
-
-
 
 
 def landing_page():
@@ -162,6 +153,20 @@ def modified_app():
 
     # Link to the publication in the sidebar
     st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
+    # Display team members' profile pictures with clickable names at the very bottom
+
+    st.write("#### Meet our Team:")
+    cols = st.columns(len(team_members))
+    
+    for idx, (name, details) in enumerate(team_members.items()):
+        image_url = base_url + details["image"]
+        linkedin_url = details["linkedin"]
+        
+        # Display the image
+        cols[idx].image(image_url, width=150)
+        
+        # Display the member's name as a clickable link to their LinkedIn profile
+        cols[idx].markdown(f"[{name}]({linkedin_url})")
 
 # Run the modified app
 modified_app()
