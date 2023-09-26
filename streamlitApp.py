@@ -24,8 +24,10 @@ st.markdown("""
 .circular-image {
     border-radius: 50%;
     overflow: hidden;
-    width: 150px; 
+    width: 150px;
     height: 150px;
+    background-size: cover;
+    background-position: center;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -37,7 +39,7 @@ instagram_logo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_
 linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
 youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
 
-# Base URL for the raw content from your GitHub repository
+# Base path for the local data directory
 base_path = "data/"
 
 # Define the team members with their respective image filenames and LinkedIn profile URLs
@@ -152,13 +154,6 @@ def modified_app():
         st.write(matching_plant_names)
 
     # Define the team members with their respective image filenames and LinkedIn profile URLs
-team_members = {
-    "Alina Lomans": {"image": "Alina Lomans.jpg", "linkedin": "LinkedIn_Profile_URL_1"},
-    "Desmond Lartey": {"image": "Desmond Lartey.jpeg", "linkedin": "LinkedIn_Profile_URL_2"},
-    "Hua Wang": {"image": "Huan Wang.jpeg", "linkedin": "LinkedIn_Profile_URL_3"},
-    "Monica Bonu": {"image": "Monica Bonu.jpeg", "linkedin": "LinkedIn_Profile_URL_3"},
-    # ... and so on for all members
-}
 
 # Display team members' profile pictures with clickable names at the very bottom
     st.write("#### Meet our Team:")
