@@ -25,10 +25,10 @@ base_url = "https://github.com/desmond-lartey/PlantsApp/edit/Fires/data/"
 
 # Define the team members with their respective image filenames and LinkedIn profile URLs
 team_members = {
-    "Alina Lomans": {"image": "filename1.jpg", "linkedin": "LinkedIn_Profile_URL_1"},
-    "Desmond Lartey": {"image": "filename2.jpg", "linkedin": "LinkedIn_Profile_URL_2"},
-    "Hua Wang": {"image": "filename3.jpg", "linkedin": "LinkedIn_Profile_URL_3"},
-    "Monica Bonu": {"image": "filename3.jpg", "linkedin": "LinkedIn_Profile_URL_3"},
+    "Alina Lomans": {"image": "Alina Lomans.jpg", "linkedin": "LinkedIn_Profile_URL_1"},
+    "Desmond Lartey": {"image": "Desmond Lartey.jpeg", "linkedin": "LinkedIn_Profile_URL_2"},
+    "Hua Wang": {"image": "Huan Wang.jpeg", "linkedin": "LinkedIn_Profile_URL_3"},
+    "Monica Bonu": {"image": "Monica Bonu.jpeg", "linkedin": "LinkedIn_Profile_URL_3"},
     # ... and so on for all members
 }
 
