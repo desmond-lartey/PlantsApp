@@ -20,6 +20,27 @@ instagram_logo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_
 linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
 youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
 
+# Define the team members and their respective LinkedIn profile URLs
+team_members = {
+    "Member 1": "LinkedIn_Profile_URL_1",
+    "Member 2": "LinkedIn_Profile_URL_2",
+    "Member 3": "https://media.licdn.com/dms/image/C4D03AQFUr4kgOCQzvg/profile-displayphoto-shrink_400_400/0/1639817756530?e=1701302400&v=beta&t=5QLjaEZV2NHa5ZXgzt9svldzI3QUcW3TtHo_NTAOTBU",
+    "Member 4": "LinkedIn_Profile_URL_3",
+    # ... and so on for all members
+}
+
+# ...
+
+# Display clickable links to team members' LinkedIn profiles
+st.write("#### Meet our Team:")
+cols = st.columns(len(team_members))
+
+for idx, (name, url) in enumerate(team_members.items()):
+    cols[idx].markdown(f"[{name}]({url})")
+
+
+
+
 def landing_page():
     st.title("Sustainable Urban Green")
     
