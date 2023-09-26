@@ -191,7 +191,7 @@ def modified_app():
     col5.write("[YouTube](https://www.youtube.com/)")
 
     # Link to the publication in the sidebar
-    st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
+    #st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
     
      # Add the "About" section to the sidebar
     st.sidebar.markdown("### About")
@@ -204,13 +204,13 @@ def modified_app():
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
     [Source code and documentation here](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
-    #Source code and documentation here: [https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
-    #""")
+    
+    st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
 
 import datetime
 
 current_year = datetime.datetime.now().year
-st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
+#st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
 
     
     
