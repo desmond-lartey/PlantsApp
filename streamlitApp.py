@@ -209,8 +209,8 @@ def modified_app():
 
 #import datetime
 
-#current_year = datetime.datetime.now().year
-#st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions")
+current_year = datetime.datetime.now().year
+st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions")
 
     
     
