@@ -153,7 +153,9 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
-    
+    # Create some space using CSS padding
+    st.markdown('<div style="padding: 50px;"></div>', unsafe_allow_html=True)
+
 
 # Display team members' profile pictures with clickable names at the very bottom
     st.write("#### Meet our Team:")
@@ -194,7 +196,7 @@ def modified_app():
      # Add the "About" section to the sidebar
     st.sidebar.markdown("### About")
     st.sidebar.markdown("""
-    Copyright Agro-NL Consult Solutions B.V. This web app is maintained by Desmond Lartey. 
+    This web app is maintained by Desmond Lartey. 
     You can follow me on social media:
     - [GitHub](https://github.com/desmond-lartey)
     - [Twitter](https://twitter.com/desmond_lartey)
@@ -203,6 +205,12 @@ def modified_app():
     
     Source code and documentation here: [https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
     """)
+
+import datetime
+
+    current_year = datetime.datetime.now().year
+    st.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
+
     
     
 # Run the modified app
