@@ -204,12 +204,14 @@ def modified_app():
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
     [Source code and documentation here](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
-    
-    st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
 
 import datetime
-
 current_year = datetime.datetime.now().year
+    st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions")
+
+#import datetime
+
+#current_year = datetime.datetime.now().year
 #st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
 
     
