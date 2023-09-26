@@ -203,13 +203,14 @@ def modified_app():
     - [YouTube](YOUR_YOUTUBE_LINK_HERE)
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
-    Source code and documentation here: [https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
-    """)
+    [Source code and documentation here](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
+    #Source code and documentation here: [https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
+    #""")
 
 import datetime
 
 current_year = datetime.datetime.now().year
-st.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
+st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
 
     
     
