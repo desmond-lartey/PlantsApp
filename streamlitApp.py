@@ -74,7 +74,7 @@ team_members = {
         "image": "Monica Bonu.jpeg", 
         "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/",
         "role": "Role: Intern",
-        "expertise": "Climate Adaption, Sustainable food systems"
+        "expertise": "Expertise: Climate Adaption, Sustainable food systems"
     },   
     # ... and so on for all members
 }
