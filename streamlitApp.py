@@ -44,10 +44,10 @@ base_path = "data/"
 
 # Define the team members with their respective image filenames and LinkedIn profile URLs
 team_members = {
-    "Alina Lomans": {"image": "Alina Lomans.jpg", "linkedin": "LinkedIn_Profile_URL_1"},
-    "Desmond Lartey": {"image": "Desmond Lartey.jpeg", "linkedin": "LinkedIn_Profile_URL_2"},
-    "Hua Wang": {"image": "Huan Wang.jpeg", "linkedin": "LinkedIn_Profile_URL_3"},
-    "Monica Bonu": {"image": "Monica Bonu.jpeg", "linkedin": "LinkedIn_Profile_URL_3"},
+    "Alina Lomans": {"image": "Alina Lomans.jpg", "linkedin": "https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/"},
+    "Desmond Lartey": {"image": "Desmond Lartey.jpeg", "linkedin": "https://www.linkedin.com/in/desmond-lartey/"},
+    "Hua Wang": {"image": "Huan Wang.jpeg", "linkedin": "https://www.linkedin.com/in/huawang0331/"},
+    "Monica Bonu": {"image": "Monica Bonu.jpeg", "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/"},
     # ... and so on for all members
 }
 
@@ -208,7 +208,7 @@ def modified_app():
 
 
 
-#import datetime
+import datetime
 
 current_year = datetime.datetime.now().year
 st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions")
