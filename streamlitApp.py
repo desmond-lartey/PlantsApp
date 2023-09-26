@@ -148,7 +148,7 @@ def modified_app():
     # Display team members' profile pictures with clickable names at the very bottom
     st.write("#### Meet our Team:")
     cols = st.columns(len(team_members))
-    
+
     for idx, (name, details) in enumerate(team_members.items()):
         image_path = base_path + details["image"]
         linkedin_url = details["linkedin"]
@@ -158,6 +158,7 @@ def modified_app():
         
         # Display the member's name as a clickable link to their LinkedIn profile
         cols[idx].markdown(f"[{name}]({linkedin_url})")
+
 
      # Social Media Links with Logos
     st.write("#### Connect with us on Social Media:")
