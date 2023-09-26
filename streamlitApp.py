@@ -12,6 +12,17 @@ file_paths = {
     "Plants": "data/plants_corrected.xlsx"
 }
 
+# Custom CSS to make images circular
+st.markdown("""
+<style>
+.circular-image {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px; 
+    height: 150px;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # Social Media Logos (Links to publicly available logos; remember to use proper licensing in production)
 facebook_logo = "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
