@@ -153,7 +153,7 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
-    # Define the team members with their respective image filenames and LinkedIn profile URLs
+    
 
 # Display team members' profile pictures with clickable names at the very bottom
     st.write("#### Meet our Team:")
@@ -190,6 +190,19 @@ def modified_app():
 
     # Link to the publication in the sidebar
     st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
+    
+     # Add the "About" section to the sidebar
+    st.sidebar.markdown("### About")
+    st.sidebar.markdown("""
+    Copyright Agro-NL Consult Solutions B.V. This web app is maintained by Desmond Lartey. 
+    You can follow me on social media:
+    - [GitHub](https://github.com/desmond-lartey)
+    - [Twitter](https://twitter.com/desmond_lartey)
+    - [YouTube](YOUR_YOUTUBE_LINK_HERE)
+    - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
+    
+    Source code and documentation here: [https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
+    """)
     
     
 # Run the modified app
