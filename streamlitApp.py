@@ -43,14 +43,41 @@ youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full
 base_path = "data/"
 
 # Define the team members with their respective image filenames and LinkedIn profile URLs
+#team_members = {
+    #"Alina Lomans": {"image": "Alina Lomans.jpg", "linkedin": "https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/"},
+    #"Desmond Lartey": {"image": "Desmond Lartey.jpeg", "linkedin": "https://www.linkedin.com/in/desmond-lartey/"},
+    #"Hua Wang": {"image": "Huan Wang.jpeg", "linkedin": "https://www.linkedin.com/in/huawang0331/"},
+    #"Monica Bonu": {"image": "Monica Bonu.jpeg", "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/"},
+    # ... and so on for all members
+#}
+
 team_members = {
-    "Alina Lomans": {"image": "Alina Lomans.jpg", "linkedin": "https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/"},
-    "Desmond Lartey": {"image": "Desmond Lartey.jpeg", "linkedin": "https://www.linkedin.com/in/desmond-lartey/"},
-    "Hua Wang": {"image": "Huan Wang.jpeg", "linkedin": "https://www.linkedin.com/in/huawang0331/"},
-    "Monica Bonu": {"image": "Monica Bonu.jpeg", "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/"},
+    "Alina Lomans": {
+        "image": "Alina Lomans.jpg", 
+        "linkedin": "https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/",
+        "role": "CEO",
+        "expertise": "Expertise: Plant Ecologist"
+    },
+    "Desmond Lartey": {
+        "image": "Desmond Lartey.jpeg", 
+        "linkedin": "https://www.linkedin.com/in/desmond-lartey/",
+        "role": "Role: Project Supervisor",
+        "expertise": "Expertise: Landscape Planner, Geospatial Analyst"
+    },
+    "Huan Wang": {
+        "image": "Huan Wang.jpeg", 
+        "linkedin": "https://www.linkedin.com/in/huawang0331/",
+        "role": "Role: Intern",
+        "expertise": "Expertise: Plant Scientist, Soil Biologist"
+    },
+     "Monica Bonu": {
+        "image": "Monica Bonu.jpeg", 
+        "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/",
+        "role": "Role: Intern",
+        "expertise": "Climate Adaption, Sustainable food systems"
+    },   
     # ... and so on for all members
 }
-
 
 def landing_page():
     st.title("Sustainable Urban Green")
@@ -158,8 +185,18 @@ def modified_app():
 
 
 # Display team members' profile pictures with clickable names at the very bottom
+    # Display team members' profile pictures with clickable names at the very bottom
     st.write("#### Meet our Team:")
     cols = st.columns(len(team_members))
+    
+    # Custom CSS for centered text
+    st.markdown("""
+    <style>
+    .centered-text {
+        text-align: center;
+    }
+    </style>
+    """, unsafe_allow_html=True)
     
     for idx, (name, details) in enumerate(team_members.items()):
         image_path = base_path + details["image"]
@@ -170,7 +207,12 @@ def modified_app():
         cols[idx].markdown(f'<a href="{linkedin_url}"><img src="data:image/jpeg;base64,{img_base64}" class="circular-image"></a>', unsafe_allow_html=True)
         
         # Display the member's name as a clickable link to their LinkedIn profile below the image
-        cols[idx].markdown(f"[{name}]({linkedin_url})")
+        cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
+        
+        # Display role and expertise centered below the member's name
+        cols[idx].markdown(f'<div class="centered-text">{details["role"]}</div>', unsafe_allow_html=True)
+        cols[idx].markdown(f'<div class="centered-text">{details["expertise"]}</div>', unsafe_allow_html=True)
+
 
      # Social Media Links with Logos
     st.write("#### Connect with us on Social Media:")
