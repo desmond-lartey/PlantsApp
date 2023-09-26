@@ -21,13 +21,14 @@ linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_lo
 youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
 
 # Base URL for the raw content from your GitHub repository
-base_url = "https://raw.githubusercontent.com/YourGitHubUsername/YourRepoName/main/data/"
+base_url = "https://github.com/desmond-lartey/PlantsApp/edit/Fires/data/"
 
 # Define the team members with their respective image filenames and LinkedIn profile URLs
 team_members = {
-    "Member 1": {"image": "filename1.jpg", "linkedin": "LinkedIn_Profile_URL_1"},
-    "Member 2": {"image": "filename2.jpg", "linkedin": "LinkedIn_Profile_URL_2"},
-    "Member 3": {"image": "filename3.jpg", "linkedin": "LinkedIn_Profile_URL_3"},
+    "Alina Lomans": {"image": "filename1.jpg", "linkedin": "LinkedIn_Profile_URL_1"},
+    "Desmond Lartey": {"image": "filename2.jpg", "linkedin": "LinkedIn_Profile_URL_2"},
+    "Hua Wang": {"image": "filename3.jpg", "linkedin": "LinkedIn_Profile_URL_3"},
+    "Monica Bonu": {"image": "filename3.jpg", "linkedin": "LinkedIn_Profile_URL_3"},
     # ... and so on for all members
 }
 
