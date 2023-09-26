@@ -153,8 +153,8 @@ def modified_app():
         image_path = base_path + details["image"]
         linkedin_url = details["linkedin"]
         
-        # Display the image
-        cols[idx].image(image_path, width=150)
+        # Display the image with the "circular-image" class
+        cols[idx].markdown(f'<img src="{image_path}" class="circular-image">', unsafe_allow_html=True)
         
         # Display the member's name as a clickable link to their LinkedIn profile
         cols[idx].markdown(f"[{name}]({linkedin_url})")
