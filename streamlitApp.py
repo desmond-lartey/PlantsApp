@@ -208,8 +208,8 @@ def modified_app():
 
 import datetime
 
-    current_year = datetime.datetime.now().year
-    st.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
+current_year = datetime.datetime.now().year
+st.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions B.V.")
 
     
     
