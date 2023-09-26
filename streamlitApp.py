@@ -55,8 +55,8 @@ team_members = {
     "Alina Lomans": {
         "image": "Alina Lomans.jpg", 
         "linkedin": "https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/",
-        "role": "CEO",
-        "expertise": "Expertise: Plant Ecologist"
+        "role": "Role: CEO",
+        "expertise": "Expertise: Plant Ecologist, Marketing Specialist"
     },
     "Desmond Lartey": {
         "image": "Desmond Lartey.jpeg", 
@@ -210,8 +210,8 @@ def modified_app():
         cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
         
         # Display role and expertise centered below the member's name
-        cols[idx].markdown(f'<div class="centered-text">{details["role"]}</div>', unsafe_allow_html=True)
-        cols[idx].markdown(f'<div class="centered-text">{details["expertise"]}</div>', unsafe_allow_html=True)
+        cols[idx].markdown(f'<div class="centered-text">**{details["role"]}**</div>', unsafe_allow_html=True)
+        cols[idx].markdown(f'<div class="centered-text">**{details["expertise"]}**</div>', unsafe_allow_html=True)
 
 
      # Social Media Links with Logos
