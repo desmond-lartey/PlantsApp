@@ -64,10 +64,10 @@ def landing_page():
     col4.image("https://camo.githubusercontent.com/6ab594e9620fd999f1e3b23d52f2ad34f86aa0a8d4711d16b2028e360061135c/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f74726565732d6f70656e2d67726f756e642d65313535373330333532343130352e6a7067", caption="", width=200)
 
     st.write("""
-    ### What do we want to do?
+    ### Objective
     We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun-city shadow/shading, and types of plants currently grown.
     
-    ### Our Solution
+    ### Our Approach
     Plants have a role in sustainable landscapes. We have a catalogue of plant species with over 30 functional qualities.
     """)
 
