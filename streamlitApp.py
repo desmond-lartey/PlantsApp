@@ -21,7 +21,7 @@ linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_lo
 youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
 
 # Base URL for the raw content from your GitHub repository
-base_url = "https://github.com/desmond-lartey/PlantsApp/edit/Fires/data/"
+base_path = "data/"
 
 # Define the team members with their respective image filenames and LinkedIn profile URLs
 team_members = {
@@ -134,6 +134,20 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
+    # Display team members' profile pictures with clickable names at the very bottom
+    st.write("#### Meet our Team:")
+    cols = st.columns(len(team_members))
+    
+    for idx, (name, details) in enumerate(team_members.items()):
+        image_path = base_path + details["image"]
+        linkedin_url = details["linkedin"]
+        
+        # Display the image
+        cols[idx].image(image_path, width=150)
+        
+        # Display the member's name as a clickable link to their LinkedIn profile
+        cols[idx].markdown(f"[{name}]({linkedin_url})")
+
      # Social Media Links with Logos
     st.write("#### Connect with us on Social Media:")
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -154,20 +168,7 @@ def modified_app():
 
     # Link to the publication in the sidebar
     st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
-    # Display team members' profile pictures with clickable names at the very bottom
-
-    st.write("#### Meet our Team:")
-    cols = st.columns(len(team_members))
     
-    for idx, (name, details) in enumerate(team_members.items()):
-        image_url = base_url + details["image"]
-        linkedin_url = details["linkedin"]
-        
-        # Display the image
-        cols[idx].image(image_url, width=150)
-        
-        # Display the member's name as a clickable link to their LinkedIn profile
-        cols[idx].markdown(f"[{name}]({linkedin_url})")
-
+    
 # Run the modified app
 modified_app()
