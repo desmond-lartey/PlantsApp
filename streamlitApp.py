@@ -12,6 +12,12 @@ file_paths = {
     "Plants": "data/plants_corrected.xlsx"
 }
 
+import base64
+
+def get_image_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode("utf-8")
+        
 # Custom CSS to make images circular
 st.markdown("""
 <style>
@@ -145,20 +151,29 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
-    # Display team members' profile pictures with clickable names at the very bottom
+    # Define the team members with their respective image filenames and LinkedIn profile URLs
+team_members = {
+    "Alina Lomans": {"image": "Alina Lomans.jpg", "linkedin": "LinkedIn_Profile_URL_1"},
+    "Desmond Lartey": {"image": "Desmond Lartey.jpeg", "linkedin": "LinkedIn_Profile_URL_2"},
+    "Hua Wang": {"image": "Huan Wang.jpeg", "linkedin": "LinkedIn_Profile_URL_3"},
+    "Monica Bonu": {"image": "Monica Bonu.jpeg", "linkedin": "LinkedIn_Profile_URL_3"},
+    # ... and so on for all members
+}
+
+# Display team members' profile pictures with clickable names at the very bottom
     st.write("#### Meet our Team:")
     cols = st.columns(len(team_members))
-
+    
     for idx, (name, details) in enumerate(team_members.items()):
         image_path = base_path + details["image"]
         linkedin_url = details["linkedin"]
         
-        # Display the image with the "circular-image" class
-        cols[idx].markdown(f'<img src="{image_path}" class="circular-image">', unsafe_allow_html=True)
+        # Convert image to base64 and display with the "circular-image" class
+        img_base64 = get_image_base64(image_path)
+        cols[idx].markdown(f'<a href="{linkedin_url}"><img src="data:image/jpeg;base64,{img_base64}" class="circular-image"></a>', unsafe_allow_html=True)
         
-        # Display the member's name as a clickable link to their LinkedIn profile
+        # Display the member's name as a clickable link to their LinkedIn profile below the image
         cols[idx].markdown(f"[{name}]({linkedin_url})")
-
 
      # Social Media Links with Logos
     st.write("#### Connect with us on Social Media:")
