@@ -210,8 +210,8 @@ def modified_app():
         cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
         
         # Display role and expertise centered below the member's name
-        cols[idx].markdown(f'<div class="centered-text">**{details["role"]}**</div>', unsafe_allow_html=True)
-        cols[idx].markdown(f'<div class="centered-text">**{details["expertise"]}**</div>', unsafe_allow_html=True)
+        cols[idx].markdown(f'<div class="centered-text"><strong>{details["role"]}<strong/></div>', unsafe_allow_html=True)
+        cols[idx].markdown(f'<div class="centered-text"><strong>{details["expertise"]}<strong/></div>', unsafe_allow_html=True)
 
 
      # Social Media Links with Logos
