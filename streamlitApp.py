@@ -204,6 +204,7 @@ def modified_app():
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
     [Source code and documentation here](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
+""")
 
 
 
