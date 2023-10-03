@@ -44,7 +44,7 @@ base_path = "data/"
 
 # Define the team members with their respective image filenames and LinkedIn profile URLs
 #team_members = {
-    #"Alina Lomans": {"image": "Alina Lomans.jpg", "linkedin": "https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/"},
+    #"Alina Lomans": {"image": "Alina Lomans.png", "linkedin": "https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/"},
     #"Desmond Lartey": {"image": "Desmond Lartey.jpeg", "linkedin": "https://www.linkedin.com/in/desmond-lartey/"},
     #"Hua Wang": {"image": "Huan Wang.jpeg", "linkedin": "https://www.linkedin.com/in/huawang0331/"},
     #"Monica Bonu": {"image": "Monica Bonu.jpeg", "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/"},
