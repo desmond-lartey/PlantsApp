@@ -54,7 +54,7 @@ base_path = "data/"
 team_members = {
     "Alina Lomans": {
         "image": "Alina Lomans.jpg", 
-        "linkedin": "https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/",
+        "linkedin": "https://www.linkedin.com/company/agro-nl-consult-solutions/",
         "role": "Role: CEO",
         "expertise": "Expertise: Plant Ecologist, Marketing Specialist"
     },
