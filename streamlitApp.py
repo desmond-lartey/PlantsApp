@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import base64
+import datetime
 
 # Define the paths to the Excel files
 file_paths = {
@@ -79,6 +81,35 @@ team_members = {
     # ... and so on for all members
 }
 
+def get_ph_ranges():
+    """Return predefined pH range options."""
+    return ["<5", "5-7", "7-9", ">9"]
+
+def filter_by_ph(df, ph_range):
+    """Filter the DataFrame by the selected pH range."""
+    # Helper function to parse pH values from the dataset
+    def parse_ph(value):
+        try:
+            # Convert comma decimals to point decimals and split the range
+            low, high = map(lambda x: float(x.replace(',', '.')), value.split('-'))
+        except ValueError:
+            return (None, None)
+        return (low, high)
+    
+    # Apply the helper function to the entire pH column
+    df["ph_low"], df["ph_high"] = zip(*df["pH"].map(parse_ph))
+    
+    if ph_range == "<5":
+        mask = df["ph_low"] < 5
+    elif ph_range == "5-7":
+        mask = (df["ph_low"] >= 5) & (df["ph_high"] <= 7)
+    elif ph_range == "7-9":
+        mask = (df["ph_low"] >= 7) & (df["ph_high"] <= 9)
+    elif ph_range == ">9":
+        mask = df["ph_high"] > 9
+    
+    return df[mask]
+    
 def landing_page():
     st.title("Sustainable Urban Green")
     
