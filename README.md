@@ -26,13 +26,13 @@
 
 <h2>Getting Started with the App</h2>
 <ol>
-    Remember that the app initialise a 1-to-1 relational algorithm if you select a single file, value or attributes. This means that there is a strict and accurate match based on how it is entered in the dataset. The one-to-one relation will not work well if you select multiples. This can work well sometimes but affect referential integrity.</li>
+Remember that the app initialise a 1-to-1 relational algorithm if you select a single file, value or attributes. This means that there is a strict and accurate match based on how it is entered in the dataset. The one-to-one relation will not work well if you select multiples. This can work well sometimes but affect referential integrity.</li>
     <li>Select the relevant datasets.
     <li>Choose the attributes you're interested in.</li>
     <li>Filter out the values, and let the app suggest plants that match the criteria.</li>
     <li>Dive deeper into each plant's characteristics and understand its impact on the environment.</li>
     
-<p>Read these documentation carefully, <a href="https://plantsapp-ajjdvywmagmqbsty4f2r9c.streamlit.app/">visit the App here</a>.</p>
+<p><a href="https://plantsapp-ajjdvywmagmqbsty4f2r9c.streamlit.app/">visit the App here</a>.</p>
 
     ##Things to note
 There is a problem with "climate zone from and till" as well as ph values. It is not possible to use ranges, you really have to use a multi select to capture the information you need from this category. The issue might be that when we use the multiselect widget for values of "climate zone from" and "climate zone till", if the selected values in the dropdown are not part of the unique values present in the dataset, the widget may default back to a single selection. To get around this, The current app force the options in the multiselect widget to be a range of possible climate zones, irrespective of whether they exist in the dataset.
