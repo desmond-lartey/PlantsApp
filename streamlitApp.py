@@ -53,7 +53,7 @@ base_path = "data/"
 
 team_members = {
     "Alina Lomans": {
-        "image": "Alina Lomans.jpg", 
+        "image": "Alina Lomans.png", 
         "linkedin": "https://www.linkedin.com/company/agro-nl-consult-solutions/",
         "role": "Role: CEO",
         "expertise": "Expertise: Plant Ecologist, Marketing Specialist"
