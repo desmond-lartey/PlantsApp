@@ -99,7 +99,7 @@ def landing_page():
     """)
 
     st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")
-    st.write("[Visit Agro-NL Consult SolutionS B.V](https://agro-nl.com/)")
+    st.write("[Visit Agro-NL Consult Solutions B.V](https://agro-nl.com/)")
 
 def get_general_colors():
     return ['yellow', 'red', 'green', 'white', 'violet', 'purple', 'orange', 'cream']
