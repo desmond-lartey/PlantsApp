@@ -244,7 +244,7 @@ def modified_app():
     - [YouTube](YOUR_YOUTUBE_LINK_HERE)
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
-    [Source code and documentation here](https://github.com/desmond-lartey/PlantsApp/blob/Fires/README.md)
+    [Read more about Urban Green](https://agro-nl.com/#urbis-green)
 """)
 
 
