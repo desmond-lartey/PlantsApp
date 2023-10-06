@@ -30,9 +30,7 @@ Remember that the app initialise a 1-to-1 relational algorithm if you select a s
     <li>Select the relevant datasets.
     <li>Choose the attributes you're interested in.</li>
     <li>Filter out the values, and let the app suggest plants that match the criteria.</li>
-    <li>Dive deeper into each plant's characteristics and understand its impact on the environment.</li>
-    
-<p><a href="https://plantsapp-ajjdvywmagmqbsty4f2r9c.streamlit.app/">visit the App here</a>.</p>
+    <li>Dive deeper into each plant's characteristics and understand its impact on the environment. <a href="https://plantsapp-ajjdvywmagmqbsty4f2r9c.streamlit.app/">VISIT THE APP HERE</a></li>.
 
     ##Things to note
 There is a problem with "climate zone from and till" as well as ph values. It is not possible to use ranges, you really have to use a multi select to capture the information you need from this category. The issue might be that when we use the multiselect widget for values of "climate zone from" and "climate zone till", if the selected values in the dropdown are not part of the unique values present in the dataset, the widget may default back to a single selection. To get around this, The current app force the options in the multiselect widget to be a range of possible climate zones, irrespective of whether they exist in the dataset.
@@ -57,7 +55,7 @@ Once the data is standardized, the app's logic can be simplified. You can then f
 If the dataset is expected to grow or if more advanced filtering and querying are anticipated in the future, consider moving from this Excel-based system app to the postgresQL database which has been designed on the main computer. The relational database allows for more structured data storage, easier querying and advanced queries for climate analysis at country level.
 </ol>
 
-<p>See the app version of the geodatabase which includes queries at the country level, climate, and recommended species for local adaptation strategies, <a href="https://github.com/desmond-lartey/PlantsApp-Geodatabse/tree/Fires">visit the geodatabase website</a>.</p>
+<p>See the app version of the geodatabase which includes queries at the country level, climate, and recommended species for local adaptation strategies. <a href="https://github.com/desmond-lartey/PlantsApp-Geodatabse/tree/Fires">VISIT THE GEODATABSE APP HERE</a>.</p>
 
 <h2>How to update the app online from the Excel sheet</h2>
 <p>You have to open the folder 'data' in the list of files here. Then download the file you want to update. For instance 'biodiversity_corrected'. Go to the matrix and look for the column biodiversity you want to pick information from. Copy a single column from the matrix. Now you can see that the 'biodiversity_corrected file has the same column identity as the one you have copied. Create a 4-empty row on the top of the header in the file. Paste what you copied in the exact column. Now rename the header you posted this info as the original name. Delete the four rows you created, this only helped you to paste the correct rows exactly from the matrix to the file. Save the file. Make sure you have saved it in xlsl/Excel workbook and not in CSV. You have permission to upload new files in the GitHub repository of the PlantApp. So delete the old file and replace the new one. Remember that it should have the same name as before.</p>
