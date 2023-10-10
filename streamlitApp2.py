@@ -181,10 +181,10 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
-if st.button("Show Map"):
-    map_app()
-    # Create some space using CSS padding
-    st.markdown('<div style="padding: 50px;"></div>', unsafe_allow_html=True)
+    if st.button("Show Map"):
+        map_app()
+        # Create some space using CSS padding
+        st.markdown('<div style="padding: 50px;"></div>', unsafe_allow_html=True)
 
 
 # Display team members' profile pictures with clickable names at the very bottom
