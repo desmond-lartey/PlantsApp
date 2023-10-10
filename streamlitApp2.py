@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-from map_interface import app as map_app
+from map_interface import display_map
+
 
 # Define the paths to the Excel files
 file_paths = {
@@ -12,6 +13,8 @@ file_paths = {
     "Ornamental": "data/ornamental_corrected.xlsx",
     "Plants": "data/plants_corrected.xlsx"
 }
+
+plants_with_locations_df = pd.read_excel("data/final_plants_with_locations.xlsx")
 
 import base64
 
@@ -78,6 +81,41 @@ team_members = {
         "expertise": "Expertise: Climate Adaption, Sustainable food systems"
     },   
 
+    # ... (existing team members)
+    "Vladimir Kovalchuk": {
+        "image": "Vladimir Kovalchuk.jpg", 
+        "linkedin": "https://www.linkedin.com/in/new-member-1/",
+        "role": "Role: Marketting",
+        "expertise": "Expertise: Marketting"
+    },
+        # ... (existing team members)
+    #"New Member 1": {
+    #    "image": "NewMember1.jpg", 
+    #    "linkedin": "https://www.linkedin.com/in/new-member-1/",
+    #    "role": "Role: Some Role",
+    #    "expertise": "Expertise: Some Expertise"
+    #},
+        # ... (existing team members)
+    #"New Member 1": {
+    #    "image": "NewMember1.jpg", 
+    #    "linkedin": "https://www.linkedin.com/in/new-member-1/",
+    #    "role": "Role: Some Role",
+    #    "expertise": "Expertise: Some Expertise"
+    #},
+        # ... (existing team members)
+    #"New Member 1": {
+    #    "image": "NewMember1.jpg", 
+    #    "linkedin": "https://www.linkedin.com/in/new-member-1/",
+    #    "role": "Role: Some Role",
+    #    "expertise": "Expertise: Some Expertise"
+    #},
+        # ... (existing team members)
+    #"New Member 1": {
+    #    "image": "NewMember1.jpg", 
+    #    "linkedin": "https://www.linkedin.com/in/new-member-1/",
+    #    "role": "Role: Some Role",
+    #    "expertise": "Expertise: Some Expertise"
+    #},
 }
 
 def landing_page():
@@ -181,10 +219,17 @@ def modified_app():
         st.write("Matching Plant Names:")
         st.write(matching_plant_names)
 
-    if st.button("Show Map"):
-        map_app()
+    #if st.button("Show Map"):
+        #map_app()
         # Create some space using CSS padding
-        st.markdown('<div style="padding: 50px;"></div>', unsafe_allow_html=True)
+        #st.markdown('<div style="padding: 50px;"></div>', unsafe_allow_html=True)
+    #map_app()
+
+    #if st.button("Show Map"):
+    #map_app(plants_df)
+    #map_app(plants_with_locations_df)
+    display_map(plants_with_locations_df)
+
 
 
 # Display team members' profile pictures with clickable names at the very bottom
@@ -230,7 +275,7 @@ def modified_app():
     col3.write("[Instagram](https://www.instagram.com/)")
     
     col4.image(linkedin_logo, width=32)
-    col4.write("[LinkedIn](https://www.linkedin.com/in/alina-lomans-agro-nl-cs-urbis-green-b44a56b0/)")
+    col4.write("[LinkedIn](https://www.linkedin.com/company/agro-nl-consult-solutions/)")
     
     col5.image(youtube_logo, width=32)
     col5.write("[YouTube](https://www.youtube.com/)")
@@ -257,8 +302,8 @@ import datetime
 current_year = datetime.datetime.now().year
 st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions")
 
-if st.button("Show Map"):
-    map_app()
+#if st.button("Show Map"):
+    #map_app()
     
     
 # Run the modified app
