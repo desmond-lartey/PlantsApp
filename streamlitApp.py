@@ -76,13 +76,7 @@ team_members = {
         "role": "Role: Intern",
         "expertise": "Expertise: Climate Adaption, Sustainable food systems"
     },   
-    "Vladimir Kovalchuk": {
-        "image": "Vladimir Kovalchuk.jpeg", 
-        "linkedin": "",
-        "role": "Role: Marketing",
-        "expertise": "Expertise: Market Strategist"
-    },  
-    # ... and so on for all members
+
 }
 
 def landing_page():
