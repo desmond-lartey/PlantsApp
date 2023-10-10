@@ -76,7 +76,6 @@ team_members = {
         "role": "Role: Intern",
         "expertise": "Expertise: Climate Adaption, Sustainable food systems"
     },   
-
     "Vladimir Kovalchuk": {
         "image": "Vladimir Kovalchuk.jpeg", 
         "linkedin": "",
