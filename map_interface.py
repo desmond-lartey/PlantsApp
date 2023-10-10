@@ -3,10 +3,10 @@ import folium
 from streamlit_folium import folium_static
 
 def app():
-    st.title("Home")
+    st.title("Map Display")
     
-    # create a folium map object
+    # Create a folium map object
     m = folium.Map(location=[45.5236, -122.6750])
-
-    # display map on streamlit
+    
+    # Display the map on Streamlit
     folium_static(m)
