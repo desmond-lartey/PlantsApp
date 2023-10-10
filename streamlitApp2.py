@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from map_interface import app as map_app
 
 # Define the paths to the Excel files
 file_paths = {
@@ -254,6 +255,8 @@ import datetime
 current_year = datetime.datetime.now().year
 st.sidebar.markdown(f"© {current_year} Copyright Agro-NL Consult Solutions")
 
+if st.button("Show Map"):
+    map_app()
     
     
 # Run the modified app
