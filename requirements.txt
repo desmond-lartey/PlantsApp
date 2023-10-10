@@ -9,7 +9,6 @@ keplergl
 leafmap
 localtileserver
 nbserverproxy
-streamlit
 streamlit-option-menu
 streamlit-folium
 psycopg2-binary
