@@ -1,16 +1,12 @@
 import streamlit as st
-import leafmap.foliumap as leafmap
+import folium
+from streamlit_folium import folium_static
 
 def app():
     st.title("Home")
-    st.markdown(
-        """
-    A [streamlit](https://streamlit.io) app template for geospatial applications based on [streamlit-option-menu](https://github.com/victoryhb/streamlit-option-menu). 
-    To create a direct link to a pre-selected menu, add `?page=<app name>` to the URL, e.g., `?page=upload`.
-    https://share.streamlit.io/giswqs/streamlit-template?page=upload
-    """
-    )
+    
+    # create a folium map object
+    m = folium.Map(location=[45.5236, -122.6750])
 
-    m = leafmap.Map(locate_control=True)
-    m.add_basemap("ROADMAP")
-    m.to_streamlit(height=700)
+    # display map on streamlit
+    folium_static(m)
