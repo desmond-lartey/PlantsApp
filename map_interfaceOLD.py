@@ -33,19 +33,6 @@ def display_map(plants_with_locations_df):
     else:
         locations = plants_with_locations_df[["Genus_Latitude", "Genus_Longitude", "Extracted Genus"]].dropna().values
 
-
-def correct_coordinates(row, lat_col, lon_col):
-    lat = row[lat_col]
-    lon = row[lon_col]
-    if lat < -90 or lat > 90:
-        return lon, lat
-    return lat, lon
-
-# During the extraction process:
-plants_with_locations_df['Individual_Latitude'], plants_with_locations_df['Individual_Longitude'] = zip(*plants_with_locations_df.apply(correct_coordinates, args=('Individual_Latitude', 'Individual_Longitude'), axis=1))
-plants_with_locations_df['Genus_Latitude'], plants_with_locations_df['Genus_Longitude'] = zip(*plants_with_locations_df.apply(correct_coordinates, args=('Genus_Latitude', 'Genus_Longitude'), axis=1))
-
-
     # Create a folium map object
     #m = folium.Map(location=[51.924585514059515, 5.634176842286438])  
     #m = folium.Map(location=[0, 0], zoom_start=2)
