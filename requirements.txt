@@ -2,3 +2,13 @@ streamlit
 pandas
 openpyxl
 folium
+geemap
+geopandas
+jupyter-server-proxy
+keplergl
+leafmap
+localtileserver
+nbserverproxy
+streamlit-option-menu
+streamlit-folium
+psycopg2-binary

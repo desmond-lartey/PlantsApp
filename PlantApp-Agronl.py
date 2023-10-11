@@ -288,7 +288,7 @@ def modified_app():
     st.sidebar.markdown("""
     This web app is maintained by Desmond Lartey. 
     - [GitHub](https://github.com/desmond-lartey)
-    - [Twitter](https://twitter.com/desmond_lartey)
+    - [Twitter](https://twitter.com/Desmondlartey17)
     - [YouTube](YOUR_YOUTUBE_LINK_HERE)
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
