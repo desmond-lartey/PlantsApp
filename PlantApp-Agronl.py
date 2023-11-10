@@ -281,7 +281,7 @@ def modified_app():
     col5.write("[YouTube](https://www.youtube.com/)")
 
     # Link to the publication in the sidebar
-    #st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
+    st.sidebar.markdown("Help us know your thought [in this survey](https://forms.office.com/r/6DSuxtKyiX).")
     
      # Add the "About" section to the sidebar
     st.sidebar.markdown("### About")
