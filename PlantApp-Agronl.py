@@ -287,9 +287,9 @@ def modified_app():
     st.sidebar.markdown("### About")
     st.sidebar.markdown("""
     This web app is maintained by Desmond Lartey. For any Mulfunction of the App, contact
-    - [GitHub](https://github.com/desmond-lartey)
-    - [Twitter](https://twitter.com/Desmondlartey17)
-    - [YouTube](YOUR_YOUTUBE_LINK_HERE)
+    #- [GitHub](https://github.com/desmond-lartey)
+    #- [Twitter](https://twitter.com/Desmondlartey17)
+    #- [YouTube](YOUR_YOUTUBE_LINK_HERE)
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
     [Read more about Urban Green](https://agro-nl.com/#urbis-green)
