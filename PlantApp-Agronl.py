@@ -82,12 +82,12 @@ team_members = {
     },   
 
     # ... (existing team members)
-    "Vladimir Kovalchuk": {
-        "image": "Vladimir Kovalchuk.jpg", 
-        "linkedin": "https://www.linkedin.com/in/new-member-1/",
-        "role": "Role: Marketting",
-        "expertise": "Expertise: Marketting"
-    },
+    #"Vladimir Kovalchuk": {
+        #"image": "Vladimir Kovalchuk.jpg", 
+        #"linkedin": "https://www.linkedin.com/in/new-member-1/",
+        #"role": "Role: Marketting",
+        #"expertise": "Expertise: Marketting"
+    #},
         # ... (existing team members)
     #"New Member 1": {
     #    "image": "NewMember1.jpg", 
@@ -286,7 +286,7 @@ def modified_app():
      # Add the "About" section to the sidebar
     st.sidebar.markdown("### About")
     st.sidebar.markdown("""
-    This web app is maintained by Desmond Lartey. 
+    This web app is maintained by Desmond Lartey. For any Mulfunction of the App, contact
     - [GitHub](https://github.com/desmond-lartey)
     - [Twitter](https://twitter.com/Desmondlartey17)
     - [YouTube](YOUR_YOUTUBE_LINK_HERE)
