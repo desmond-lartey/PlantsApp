@@ -2,7 +2,7 @@
 
 import streamlit as st
 from utils import get_image_base64
-from config import base_path, team_members, facebook_logo, twitter_logo, instagram_logo, linkedin_logo, youtube_logo
+from config import base_path, facebook_logo, twitter_logo, instagram_logo, linkedin_logo, youtube_logo, #team_members 
 
 def landing_page():
     st.title("Sustainable Urban Green")
