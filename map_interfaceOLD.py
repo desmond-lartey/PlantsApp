@@ -7,7 +7,7 @@ from folium.plugins import MarkerCluster
 def display_map(plants_with_locations_df):
     st.title("Map Display")
 
-    # Extract latitude and longitude values from the 'Location' and 'Genus Mapped Location' columns
+    
     # Extract latitude and longitude values from the 'Location' and 'Genus Mapped Location' columns
     plants_with_locations_df['Individual_Latitude'] = plants_with_locations_df['Location'].str.extract(r'\((-?\d+\.\d+),').astype(float)
     plants_with_locations_df['Individual_Longitude'] = plants_with_locations_df['Location'].str.extract(r',\s*(-?\d+\.\d+)\)').astype(float)
