@@ -116,7 +116,7 @@ base_path = "data/"
     #    "role": "Role: Some Role",
     #    "expertise": "Expertise: Some Expertise"
     #},
-}#
+#}
 
 def landing_page():
     st.title("Sustainable Urban Green")
