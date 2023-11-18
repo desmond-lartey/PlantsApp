@@ -55,45 +55,38 @@ base_path = "data/"
     # ... and so on for all members
 #}
 
-team_members = {
-    "Alina Lomans": {
-        "image": "Alinaimage.jpg", 
-        "linkedin": "https://www.linkedin.com/company/agro-nl-consult-solutions/",
-        "role": "Role: CEO",
-        "expertise": "Expertise: Plant Ecologist, Marketing Specialist"
-    },
-    "Desmond Lartey": {
-        "image": "Desmond Lartey.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/desmond-lartey/",
-        "role": "Role: Project Supervisor",
-        "expertise": "Expertise: Landscape Planner, Geospatial Analyst"
-    },
-    "Huan Wang": {
-        "image": "Huan Wang.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/huawang0331/",
-        "role": "Role: Intern",
-        "expertise": "Expertise: Plant Scientist, Soil Biologist"
-    },
-     "Monica Bonu": {
-        "image": "Monica Bonu.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/",
-        "role": "Role: Intern",
-        "expertise": "Expertise: Climate Adaption, Sustainable food systems"
-    },   
+#team_members = {
+    #"Alina Lomans": {
+        #"image": "Alinaimage.jpg", 
+        #"linkedin": "https://www.linkedin.com/company/agro-nl-consult-solutions/",
+        #"role": "Role: CEO",
+        #"expertise": "Expertise: Plant Ecologist, Marketing Specialist"
+    #},
+    #"Desmond Lartey": {
+        #"image": "Desmond Lartey.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/desmond-lartey/",
+        #"role": "Role: Project Supervisor",
+        #"expertise": "PhD Candidate: Landscape Planner, Geospatial Analyst"
+    #},
+    #"Huan Wang": {
+        #"image": "Huan Wang.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/huawang0331/",
+        #"role": "Role: Intern",
+        #"expertise": "Expertise: Plant Scientist, Soil Biologist"
+    #},
+     #"Monica Bonu": {
+        #"image": "Monica Bonu.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/",
+        #"role": "Role: Intern",
+        #"expertise": "Expertise: Climate Adaption, Sustainable food systems"
+    #},   
 
     # ... (existing team members)
-    "Vladimir Kovalchuk": {
-        "image": "Vladimir Kovalchuk.jpg", 
-        "linkedin": "https://www.linkedin.com/in/new-member-1/",
-        "role": "Role: Marketting",
-        "expertise": "Expertise: Marketting"
-    },
-        # ... (existing team members)
-    #"New Member 1": {
-    #    "image": "NewMember1.jpg", 
-    #    "linkedin": "https://www.linkedin.com/in/new-member-1/",
-    #    "role": "Role: Some Role",
-    #    "expertise": "Expertise: Some Expertise"
+    #"Vladimir Kovalchuk": {
+        #"image": "Vladimir Kovalchuk.jpg", 
+        #"linkedin": "https://www.linkedin.com/in/new-member-1/",
+        #"role": "Role: Marketting",
+        #"expertise": "Expertise: Marketting"
     #},
         # ... (existing team members)
     #"New Member 1": {
@@ -116,7 +109,14 @@ team_members = {
     #    "role": "Role: Some Role",
     #    "expertise": "Expertise: Some Expertise"
     #},
-}
+        # ... (existing team members)
+    #"New Member 1": {
+    #    "image": "NewMember1.jpg", 
+    #    "linkedin": "https://www.linkedin.com/in/new-member-1/",
+    #    "role": "Role: Some Role",
+    #    "expertise": "Expertise: Some Expertise"
+    #},
+#}
 
 def landing_page():
     st.title("Sustainable Urban Green")
@@ -234,32 +234,32 @@ def modified_app():
 
 # Display team members' profile pictures with clickable names at the very bottom
     # Display team members' profile pictures with clickable names at the very bottom
-    st.write("#### Meet our Team:")
-    cols = st.columns(len(team_members))
+    #st.write("#### Meet our Team:")
+    #cols = st.columns(len(team_members))
     
     # Custom CSS for centered text
-    st.markdown("""
-    <style>
-    .centered-text {
-        text-align: center;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    #st.markdown("""
+    #<style>
+    #.centered-text {
+        #text-align: center;
+    #}
+    #</style>
+    #""", unsafe_allow_html=True)
     
-    for idx, (name, details) in enumerate(team_members.items()):
-        image_path = base_path + details["image"]
-        linkedin_url = details["linkedin"]
+    #for idx, (name, details) in enumerate(team_members.items()):
+        #image_path = base_path + details["image"]
+        #linkedin_url = details["linkedin"]
         
         # Convert image to base64 and display with the "circular-image" class
-        img_base64 = get_image_base64(image_path)
-        cols[idx].markdown(f'<a href="{linkedin_url}"><img src="data:image/jpeg;base64,{img_base64}" class="circular-image"></a>', unsafe_allow_html=True)
+        #img_base64 = get_image_base64(image_path)
+        #cols[idx].markdown(f'<a href="{linkedin_url}"><img src="data:image/jpeg;base64,{img_base64}" class="circular-image"></a>', unsafe_allow_html=True)
         
         # Display the member's name as a clickable link to their LinkedIn profile below the image
-        cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
         
         # Display role and expertise centered below the member's name
-        cols[idx].markdown(f'<div class="centered-text"><strong>{details["role"]}<strong/></div>', unsafe_allow_html=True)
-        cols[idx].markdown(f'<div class="centered-text"><strong>{details["expertise"]}<strong/></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><strong>{details["role"]}<strong/></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><strong>{details["expertise"]}<strong/></div>', unsafe_allow_html=True)
 
 
      # Social Media Links with Logos
@@ -281,15 +281,15 @@ def modified_app():
     col5.write("[YouTube](https://www.youtube.com/)")
 
     # Link to the publication in the sidebar
-    #st.sidebar.markdown("Read our detailed [assessment publication](YOUR_LINK_HERE).")
+    #st.sidebar.markdown("Help us know your thought [in this survey](https://forms.office.com/r/6DSuxtKyiX).")
     
      # Add the "About" section to the sidebar
     st.sidebar.markdown("### About")
     st.sidebar.markdown("""
-    This web app is maintained by Desmond Lartey. 
-    - [GitHub](https://github.com/desmond-lartey)
-    - [Twitter](https://twitter.com/Desmondlartey17)
-    - [YouTube](YOUR_YOUTUBE_LINK_HERE)
+    For any Malfunction of the App, contact
+    #- [GitHub](https://github.com/desmond-lartey)
+    #- [Twitter](https://twitter.com/Desmondlartey17)
+    #- [YouTube](YOUR_YOUTUBE_LINK_HERE)
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
     [Read more about Urban Green](https://agro-nl.com/#urbis-green)

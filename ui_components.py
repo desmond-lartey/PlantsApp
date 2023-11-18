@@ -2,7 +2,7 @@
 
 import streamlit as st
 from utils import get_image_base64
-from config import base_path, team_members, facebook_logo, twitter_logo, instagram_logo, linkedin_logo, youtube_logo
+from config import base_path, facebook_logo, twitter_logo, instagram_logo, linkedin_logo, youtube_logo, #team_members 
 
 def landing_page():
     st.title("Sustainable Urban Green")
@@ -25,33 +25,33 @@ def landing_page():
     st.write("[Read the documentation about the app](https://github.com/desmond-lartey/PlantsApp)")
     st.write("[Visit Agro-NL Consult Solutions B.V](https://agro-nl.com/)")
 
-def display_team_members():
-    st.write("#### Meet our Team:")
-    cols = st.columns(len(team_members))
+#def display_team_members():
+    #st.write("#### Meet our Team:")
+    #cols = st.columns(len(team_members))
     
     # Custom CSS for centered text
-    st.markdown("""
-    <style>
-    .centered-text {
-        text-align: center;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    #st.markdown("""
+    #<style>
+    #.centered-text {
+        #text-align: center;
+    #}
+    #</style>
+    #""", unsafe_allow_html=True)
     
-    for idx, (name, details) in enumerate(team_members.items()):
-        image_path = base_path + details["image"]
-        linkedin_url = details["linkedin"]
+    #for idx, (name, details) in enumerate(team_members.items()):
+        #image_path = base_path + details["image"]
+        #linkedin_url = details["linkedin"]
         
         # Convert image to base64 and display with the "circular-image" class
-        img_base64 = get_image_base64(image_path)
-        cols[idx].markdown(f'<a href="{linkedin_url}"><img src="data:image/jpeg;base64,{img_base64}" class="circular-image"></a>', unsafe_allow_html=True)
+        #img_base64 = get_image_base64(image_path)
+        #cols[idx].markdown(f'<a href="{linkedin_url}"><img src="data:image/jpeg;base64,{img_base64}" class="circular-image"></a>', unsafe_allow_html=True)
         
         # Display the member's name as a clickable link to their LinkedIn profile below the image
-        cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
         
         # Display role and expertise centered below the member's name
-        cols[idx].markdown(f'<div class="centered-text"><strong>{details["role"]}<strong/></div>', unsafe_allow_html=True)
-        cols[idx].markdown(f'<div class="centered-text"><strong>{details["expertise"]}<strong/></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><strong>{details["role"]}<strong/></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><strong>{details["expertise"]}<strong/></div>', unsafe_allow_html=True)
 
 def display_social_media_links():
     st.write("#### Connect with us on Social Media:")

@@ -20,29 +20,29 @@ youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full
 
 base_path = "data/"
 
-team_members = {
-    "Alina Lomans": {
-        "image": "Alinaimage.jpg", 
-        "linkedin": "https://www.linkedin.com/company/agro-nl-consult-solutions/",
-        "role": "Role: CEO",
-        "expertise": "Expertise: Plant Ecologist, Marketing Specialist"
-    },
-    "Desmond Lartey": {
-        "image": "Desmond Lartey.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/desmond-lartey/",
-        "role": "Role: Project Supervisor",
-        "expertise": "Expertise: Landscape Planner, Geospatial Analyst"
-    },
-    "Huan Wang": {
-        "image": "Huan Wang.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/huawang0331/",
-        "role": "Role: Intern",
-        "expertise": "Expertise: Plant Scientist, Soil Biologist"
-    },
-     "Monica Bonu": {
-        "image": "Monica Bonu.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/",
-        "role": "Role: Intern",
-        "expertise": "Expertise: Climate Adaption, Sustainable food systems"
-    }
-}
+#team_members = {
+    #"Alina Lomans": {
+        #"image": "Alinaimage.jpg", 
+        #"linkedin": "https://www.linkedin.com/company/agro-nl-consult-solutions/",
+        #"role": "Role: CEO",
+        #"expertise": "Expertise: Plant Ecologist, Marketing Specialist"
+    #},
+    #"Desmond Lartey": {
+        #"image": "Desmond Lartey.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/desmond-lartey/",
+        #"role": "Role: Project Supervisor",
+        #"expertise": "PhD Candidate: Landscape Planner, Geospatial Analyst"
+    #},
+    #"Huan Wang": {
+        #"image": "Huan Wang.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/huawang0331/",
+        #"role": "Role: Intern",
+        #"expertise": "Expertise: Plant Scientist, Soil Biologist"
+    #},
+     #"Monica Bonu": {
+        #"image": "Monica Bonu.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/",
+        #"role": "Role: Intern",
+        #"expertise": "Expertise: Climate Adaption, Sustainable food systems"
+    #}
+#}
