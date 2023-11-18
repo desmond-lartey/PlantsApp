@@ -234,32 +234,32 @@ def modified_app():
 
 # Display team members' profile pictures with clickable names at the very bottom
     # Display team members' profile pictures with clickable names at the very bottom
-    st.write("#### Meet our Team:")
-    cols = st.columns(len(team_members))
+    #st.write("#### Meet our Team:")
+    #cols = st.columns(len(team_members))
     
     # Custom CSS for centered text
-    st.markdown("""
-    <style>
-    .centered-text {
-        text-align: center;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    #st.markdown("""
+    #<style>
+    #.centered-text {
+        #text-align: center;
+    #}
+    #</style>
+    #""", unsafe_allow_html=True)
     
-    for idx, (name, details) in enumerate(team_members.items()):
-        image_path = base_path + details["image"]
-        linkedin_url = details["linkedin"]
+    #for idx, (name, details) in enumerate(team_members.items()):
+        #image_path = base_path + details["image"]
+        #linkedin_url = details["linkedin"]
         
         # Convert image to base64 and display with the "circular-image" class
-        img_base64 = get_image_base64(image_path)
-        cols[idx].markdown(f'<a href="{linkedin_url}"><img src="data:image/jpeg;base64,{img_base64}" class="circular-image"></a>', unsafe_allow_html=True)
+        #img_base64 = get_image_base64(image_path)
+        #cols[idx].markdown(f'<a href="{linkedin_url}"><img src="data:image/jpeg;base64,{img_base64}" class="circular-image"></a>', unsafe_allow_html=True)
         
         # Display the member's name as a clickable link to their LinkedIn profile below the image
-        cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><a href="{linkedin_url}">{name}</a></div>', unsafe_allow_html=True)
         
         # Display role and expertise centered below the member's name
-        cols[idx].markdown(f'<div class="centered-text"><strong>{details["role"]}<strong/></div>', unsafe_allow_html=True)
-        cols[idx].markdown(f'<div class="centered-text"><strong>{details["expertise"]}<strong/></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><strong>{details["role"]}<strong/></div>', unsafe_allow_html=True)
+        #cols[idx].markdown(f'<div class="centered-text"><strong>{details["expertise"]}<strong/></div>', unsafe_allow_html=True)
 
 
      # Social Media Links with Logos
