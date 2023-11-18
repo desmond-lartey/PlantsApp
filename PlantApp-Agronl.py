@@ -286,10 +286,9 @@ def modified_app():
      # Add the "About" section to the sidebar
     st.sidebar.markdown("### About")
     st.sidebar.markdown("""
-    For any Malfunction of the App, contact
-    #- [GitHub](https://github.com/desmond-lartey)
-    #- [Twitter](https://twitter.com/Desmondlartey17)
-    #- [YouTube](YOUR_YOUTUBE_LINK_HERE)
+    This app is maintained by Desmond Lartey. For any Malfunction of the App, contact
+
+    - [Twitter](https://twitter.com/Desmondlartey17)
     - [LinkedIn](https://www.linkedin.com/in/desmond-lartey/)
     
     [Read more about Urban Green](https://agro-nl.com/#urbis-green)
