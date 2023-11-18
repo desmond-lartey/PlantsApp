@@ -55,31 +55,31 @@ base_path = "data/"
     # ... and so on for all members
 #}
 
-team_members = {
-    "Alina Lomans": {
-        "image": "Alinaimage.jpg", 
-        "linkedin": "https://www.linkedin.com/company/agro-nl-consult-solutions/",
-        "role": "Role: CEO",
-        "expertise": "Expertise: Plant Ecologist, Marketing Specialist"
-    },
-    "Desmond Lartey": {
-        "image": "Desmond Lartey.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/desmond-lartey/",
-        "role": "Role: Project Supervisor",
-        "expertise": "Expertise: Landscape Planner, Geospatial Analyst"
-    },
-    "Huan Wang": {
-        "image": "Huan Wang.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/huawang0331/",
-        "role": "Role: Intern",
-        "expertise": "Expertise: Plant Scientist, Soil Biologist"
-    },
-     "Monica Bonu": {
-        "image": "Monica Bonu.jpeg", 
-        "linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/",
-        "role": "Role: Intern",
-        "expertise": "Expertise: Climate Adaption, Sustainable food systems"
-    },   
+#team_members = {
+    #"Alina Lomans": {
+        #"image": "Alinaimage.jpg", 
+        #"linkedin": "https://www.linkedin.com/company/agro-nl-consult-solutions/",
+        #"role": "Role: CEO",
+        #"expertise": "Expertise: Plant Ecologist, Marketing Specialist"
+    #},
+    #"Desmond Lartey": {
+        #"image": "Desmond Lartey.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/desmond-lartey/",
+        #"role": "Role: Project Supervisor",
+        #"expertise": "PhD Candidate: Landscape Planner, Geospatial Analyst"
+    #},
+    #"Huan Wang": {
+        #"image": "Huan Wang.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/huawang0331/",
+        #"role": "Role: Intern",
+        #"expertise": "Expertise: Plant Scientist, Soil Biologist"
+    #},
+     #"Monica Bonu": {
+        #"image": "Monica Bonu.jpeg", 
+        #"linkedin": "https://www.linkedin.com/in/monica-bonu-a57b4a12a/",
+        #"role": "Role: Intern",
+        #"expertise": "Expertise: Climate Adaption, Sustainable food systems"
+    #},   
 
     # ... (existing team members)
     #"Vladimir Kovalchuk": {
@@ -286,7 +286,7 @@ def modified_app():
      # Add the "About" section to the sidebar
     st.sidebar.markdown("### About")
     st.sidebar.markdown("""
-    This web app is maintained by Desmond Lartey. For any Mulfunction of the App, contact
+    For any Malfunction of the App, contact
     #- [GitHub](https://github.com/desmond-lartey)
     #- [Twitter](https://twitter.com/Desmondlartey17)
     #- [YouTube](YOUR_YOUTUBE_LINK_HERE)
