@@ -65,7 +65,9 @@ If the dataset is expected to grow or if more advanced filtering and querying ar
 
 <p>Check our other Apps in the links below. For more information on our efforts and the larger vision of Agro-NL Consult Solutions B.V, <a href="https://agro-nl.com/">visit our official website</a>.</p>
 
-[Hungary Urban Green](https://desmond.users.earthengine.app/view/hungary-urban-green-space)
+[Hungary Urban Green](https://desmond.users.earthengine.app/view/hungary-urban-green-space)    
+
+[Poland Urban Green](https://ee-desmond.projects.earthengine.app/view/poland-urban-green-space)
 
 [Serbia Urban Green](https://desmond.users.earthengine.app/view/serbia-urban-green-spaces)
 
