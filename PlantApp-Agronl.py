@@ -119,7 +119,7 @@ base_path = "data/"
 #}
 
 def landing_page():
-    st.title("Sustainable Urban Green")
+    st.title("Select a plant guide")
     
     # Create columns for images
     #col1, col2, col3, col4 = st.columns(4)
