@@ -8,12 +8,17 @@ def landing_page():
     st.title("Sustainable Urban Green")
     
     # Create columns for images
-    col1, col2, col3, col4 = st.columns(4)
-    col1.image("https://camo.githubusercontent.com/3fb76db131464f02e8b35ddb0017e9b08979b8b6c6a88f3190e22ed591735ea0/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f74726565732d62617265726f6f742d65313535373330333537373431302e6a7067", caption="", width=200)
-    col2.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-p9-min-e1557303326673.jpg", caption="", width=200)
-    col3.image("https://camo.githubusercontent.com/8e2223dec81343b6da1c5e97b128c0e6417ed8f550e2142331409259224f7a91/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f7368727562732d66756c6c2d67726f756e642d6d696e2d65313535373330333434343133312e6a7067", caption="", width=200)
-    col4.image("https://camo.githubusercontent.com/6ab594e9620fd999f1e3b23d52f2ad34f86aa0a8d4711d16b2028e360061135c/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f74726565732d6f70656e2d67726f756e642d65313535373330333532343130352e6a7067", caption="", width=200)
+    #col1, col2, col3, col4 = st.columns(4)
+    #col1.image("https://camo.githubusercontent.com/3fb76db131464f02e8b35ddb0017e9b08979b8b6c6a88f3190e22ed591735ea0/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f74726565732d62617265726f6f742d65313535373330333537373431302e6a7067", caption="", width=200)
+    #col2.image("https://agro-nl.nl/wp-content/uploads/2019/04/perennials-p9-min-e1557303326673.jpg", caption="", width=200)
+    #col3.image("https://camo.githubusercontent.com/8e2223dec81343b6da1c5e97b128c0e6417ed8f550e2142331409259224f7a91/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f7368727562732d66756c6c2d67726f756e642d6d696e2d65313535373330333434343133312e6a7067", caption="", width=200)
+    #col4.image("https://camo.githubusercontent.com/6ab594e9620fd999f1e3b23d52f2ad34f86aa0a8d4711d16b2028e360061135c/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f74726565732d6f70656e2d67726f756e642d65313535373330333532343130352e6a7067", caption="", width=200)
 
+    # Create a single column for the image
+    col1 = st.columns(1)
+    col1.image("/mnt/data/Tomato_P5260299b-e1685519424257-1600x750.jpg", caption="", width=400)
+
+streamlit_single_image_code
     st.write("""
     ### Objective
     We assess environmental challenges across landscapes, with a strong connection to green, sustainability, and their impacts on human well-being. Challenges include CO2, sun-city shadow/shading, and types of plants currently grown.
