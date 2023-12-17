@@ -137,8 +137,8 @@ def landing_page():
     col1.image(
         "https://raw.githubusercontent.com/desmond-lartey/PlantsApp/Fires/data/Tomato_P5260299b-e1685519424257-1600x750.jpg", 
         caption="", 
-        width=800,
-        height=300
+        width=600,
+        height=200
     )
     
     st.write("""
