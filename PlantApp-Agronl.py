@@ -129,15 +129,16 @@ def landing_page():
     #col3.image("https://camo.githubusercontent.com/8e2223dec81343b6da1c5e97b128c0e6417ed8f550e2142331409259224f7a91/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f7368727562732d66756c6c2d67726f756e642d6d696e2d65313535373330333434343133312e6a7067", caption="", width=200)
     #col4.image("https://camo.githubusercontent.com/6ab594e9620fd999f1e3b23d52f2ad34f86aa0a8d4711d16b2028e360061135c/68747470733a2f2f6167726f2d6e6c2e6e6c2f77702d636f6e74656e742f75706c6f6164732f323031392f30342f74726565732d6f70656e2d67726f756e642d65313535373330333532343130352e6a7067", caption="", width=200)
 
-    # Create a single column for the image
-    #col1 = st.columns(1)
-    #col1.image("/mnt/data/Tomato_P5260299b-e1685519424257-1600x750.jpg", caption="", width=400)
 
     # Create a single column for the image
-    col1 = st.columns(1)
+    col1 = st.columns(1)[0]  # Fix: select the first column from the list returned by st.columns()
 
     # Display the image from GitHub in the column
-    col1.image("https://raw.githubusercontent.com/desmond-lartey/PlantsApp/Fires/data/Tomato_P5260299b-e1685519424257-1600x750.jpg", caption="", width=400)
+    col1.image(
+        "https://raw.githubusercontent.com/desmond-lartey/PlantsApp/Fires/data/Tomato_P5260299b-e1685519424257-1600x750.jpg", 
+        caption="", 
+        width=400
+    )
     
     st.write("""
     ### Objective
