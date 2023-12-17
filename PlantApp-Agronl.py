@@ -37,10 +37,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Social Media Logos (Links to publicly available logos; remember to use proper licensing in production)
-facebook_logo = "https://www.facebook.com/agronlcs/?ref=bookmarks"
+facebook_logo = "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
 twitter_logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2HPo_08r3lhM_9yz3cufBPh9cwU5UMXay8Bisn0KZOQ&s"
-instagram_logo = "https://www.instagram.com/agronlcs/"
-linkedin_logo = "https://www.linkedin.com/company/agro-nl-consult-solutions/"
+instagram_logo = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
 youtube_logo = "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
 
 # Base path for the local data directory
@@ -277,13 +277,13 @@ def modified_app():
     st.write("#### Connect with us on Social Media:")
     col1, col2, col3, col4, col5 = st.columns(5)
     col1.image(facebook_logo, width=32)
-    col1.write("[Facebook](https://www.facebook.com/)")
+    col1.write("[Facebook](https://www.facebook.com/agronlcs/?ref=bookmarks)")
     
     col2.image(twitter_logo, width=32)
     col2.write("[Twitter](https://twitter.com/)")
     
     col3.image(instagram_logo, width=32)
-    col3.write("[Instagram](https://www.instagram.com/)")
+    col3.write("[Instagram](https://www.instagram.com/agronlcs/)")
     
     col4.image(linkedin_logo, width=32)
     col4.write("[LinkedIn](https://www.linkedin.com/company/agro-nl-consult-solutions/)")
