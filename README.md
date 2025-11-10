@@ -12,7 +12,7 @@
 
 [Click on this link to check a proof of concept for the Plant app](https://select-plant-guide.streamlit.app/)
 
-[Read more about the scientific publication of the Plant App](https://doi.org/10.1016/j.jenvman.2025.127065)
+[Read more about the scientific publication](https://doi.org/10.1016/j.jenvman.2025.127065)
 
 <h2>Aim and Objectives</h2>
 <p>The primary goal of this app is to initiate a comprehensive dialogue among municipalities, localities, and governments. We aim to emphasize the importance of sustainable urban green development and the need to prioritize it in city planning.</p>
