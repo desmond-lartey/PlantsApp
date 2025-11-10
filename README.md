@@ -1,14 +1,18 @@
 <h1> Sustainable Green Concept App</h1>
 
 <div style="display: flex; justify-content: space-between;">
-    <img src="https://agro-nl.nl/wp-content/uploads/2019/04/trees-bareroot-e1557303577410.jpg" alt="Image 1" style="width: 24%; margin-right: 1%;">
-    <img src="https://agro-nl.nl/wp-content/uploads/2019/04/shrubs-p9-min-e1557303401583.jpg" alt="Image 2" style="width: 24%; margin-right: 1%;">
-    <img src="https://agro-nl.nl/wp-content/uploads/2019/04/shrubs-full-ground-min-e1557303444131.jpg" alt="Image 3" style="width: 24%; margin-right: 1%;">
-    <img src="https://agro-nl.nl/wp-content/uploads/2019/04/trees-open-ground-e1557303524105.jpg" alt="Image 4" style="width: 24%;">
+    <img src="https://agro-production.s3.eu-central-1.amazonaws.com/t8ja6qvq46hcufdxdvyo4ilyzouf?response-content-disposition=inline%3B%20filename%3D%22Conifers.jpg%22%3B%20filename%2A%3DUTF-8%27%27Conifers.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYS2NUECDUIGZQMP4%2F20251110%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20251110T105115Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b04eec274f82d23eae853b705d335bdb035500100be9932109c2f39a0cc5b02c" alt="Image 1" style="width: 24%; margin-right: 1%;">
+    <img src="https://agro-production.s3.eu-central-1.amazonaws.com/xwlhs6esr0v2o03q7o2hqbonnult?response-content-disposition=inline%3B%20filename%3D%22Rhododendrons.jpg%22%3B%20filename%2A%3DUTF-8%27%27Rhododendrons.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYS2NUECDUIGZQMP4%2F20251110%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20251110T105115Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=62a97da2e5fe74795274199d838348ca1c48bf0d9531dae30ca2e3c50af2f392" alt="Image 2" style="width: 24%; margin-right: 1%;">
+    <img src="https://agro-production.s3.eu-central-1.amazonaws.com/2lfk33il2k71817xl0m780vwlc6g?response-content-disposition=inline%3B%20filename%3D%22Roses.jpg%22%3B%20filename%2A%3DUTF-8%27%27Roses.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYS2NUECDUIGZQMP4%2F20251110%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20251110T105115Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=53337e4617e36cb179af4131317ce570561d1790831b0425f3c3087c9c00cbef" alt="Image 3" style="width: 24%; margin-right: 1%;">
+    <img src="https://agro-production.s3.eu-central-1.amazonaws.com/rz60m1mvgugl0y3crj5penjk0pot?response-content-disposition=inline%3B%20filename%3D%22Trees.jpg%22%3B%20filename%2A%3DUTF-8%27%27Trees.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYS2NUECDUIGZQMP4%2F20251110%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20251110T105115Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=43ee91dc3b34bf2fe028cd278224b7c2ae1848a78d295e3d3d3739941e455d39" alt="Image 4" style="width: 24%;">
 </div>
 
 <h2>Overview</h2>
 <p>The Sustainable Green Concept App (Prototype), developed by Agro-NL Consult SolutionS B.V, is a tool aimed at pioneering sustainable urban development. As countries grapple with the complexities of urban expansion, environmental preservation, and the effects of climate change, our app serves as a bridge to a greener future.</p>
+
+[Click on this link to check a proof of concept for the Plant app](https://select-plant-guide.streamlit.app/)
+
+[Read more about the scientific publication of the Plant App](https://doi.org/10.1016/j.jenvman.2025.127065)
 
 <h2>Aim and Objectives</h2>
 <p>The primary goal of this app is to initiate a comprehensive dialogue among municipalities, localities, and governments. We aim to emphasize the importance of sustainable urban green development and the need to prioritize it in city planning.</p>
